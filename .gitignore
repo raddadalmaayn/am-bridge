@@ -1,0 +1,39 @@
+# --- Keys and secrets: never commit ---
+*.pem
+*.key
+id_*
+device_key.pem
+.env
+*.env
+
+# --- Fabric crypto material and credentials ---
+msp/
+tls/
+wallet/
+wallets/
+*connection*.json
+*connection*.yaml
+organizations/
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+
+# --- LaTeX build artifacts ---
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.bbl
+*.blg
+paper/main.pdf
+# evaluation logs are data, not build artifacts
+!experiments/**/*.log
+
+# --- OS ---
+.DS_Store
+
+# --- Local-only material excluded from the public tree ---
+Ender3_Printer/
+f4u2.gcode
