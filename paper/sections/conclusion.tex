@@ -1,0 +1,24 @@
+% ===========================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ===========================================================================
+
+On-chain provenance for additive manufacturing is only as trustworthy as
+the bridge that carries physical evidence onto the ledger.  This paper
+made that bridge the object of study: a four-tier trust analysis with
+explicitly stated boundaries; a canonical, device-signed bundle binding
+certified design, commanded envelope, observed telemetry, and outcome
+into one Ed25519-signed unit anchored by a single on-chain hash; and a
+working T1 implementation on unmodified consumer hardware integrated with
+a Fabric v3.1.0 provenance--reputation chaincode.  Across five real print
+jobs spanning three geometries and three outcome types, each run became a
+7--14-kB signed bundle anchored by a constant 369-B on-chain footprint and
+an atomic update of the operator's Beta posterior; a controlled
+$+15\,^{\circ}$C injection lowered the derived quality score by 9.3\% while
+design-hash compliance held at 1.0, and a single flipped sample was caught
+by both the ledger-hash and device-signature checks.  The attestation
+pipeline costs 1.55\,ms, under 3\% of the ledger-commit time.  The honest
+residual---T1 cannot detect fabrication at source by the device-key
+holder---defines the agenda: the T2 on-chain device registry, T3
+hardware-rooted or threshold attestation, and evaluation across multiple
+machines and sites.

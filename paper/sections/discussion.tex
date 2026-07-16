@@ -1,0 +1,78 @@
+% ===========================================================================
+\section{Discussion}
+\label{sec:discussion}
+% ===========================================================================
+
+\subsection{What T1 Buys, and What It Honestly Does Not}
+
+The captured run demonstrates the T1 claim precisely: after the device
+signs, every byte of evidence is bound to the ledger, and single-sample
+tampering is detected by two independent mechanisms.  It equally
+demonstrates the boundary: had the bridge host synthesized the entire
+115-sample trace before signing, nothing downstream could tell.  We regard
+stating this boundary as a contribution in itself.  A certifying authority
+needs to know that a T1 record means ``this evidence has not changed since
+the device signed it,'' not ``this print happened as described.''  For the
+dominant practical threats---retroactive editing when a part later fails,
+reuse of good evidence, quiet design substitution---tamper-evidence after
+signing is exactly the needed property, deployable today on unmodified
+consumer hardware.
+
+\subsection{Path to T2 and T3}
+
+T2 requires no new cryptography: the device identity and raw public key
+already exist in the bundle, and the chaincode gains a registry keyed by
+device ID with enrollment, revocation, and endorsement-time Ed25519
+verification of the bundle.  Its value is organizational: enrollment
+becomes a ledger event subject to endorsement policy, so a stolen key is
+bounded by its revocation window and a bureau cannot quietly add signing
+devices.  T3 addresses fabrication at source---key in a TEE or secure
+element, measured boot of the recorder, and, on industrial machines,
+signing at the sensor or controller level.  Threshold attestation across
+independent observers (e.g., a bureau device plus a customer-supplied
+witness camera or power monitor) raises collusion cost without trusted
+hardware on the printer.  Even T3, honestly, does not defeat
+physical-world spoofing (a detached thermistor in a heated block):
+attestation raises the cost and forensic visibility of fraud; it does not
+make physics self-authenticating.
+
+\subsection{Assessment-Policy Calibration}
+
+The quality score of 0.2 for the cancelled run, whose steady-state
+tracking was tight ($\pm 0.5\,^{\circ}$C at setpoint), shows the current
+policy is miscalibrated for short runs: idle and ramp samples, during which
+targets are legitimately unmet, dominate the in-tolerance fraction.  The
+five-run data makes the effect precise: the two idle-started cubes score
+0.78--0.71 despite excellent steady-state tracking, whereas
+\icode{cube\_repeat}, captured after warm-up, scores 0.94---the
+$\approx$0.16 spread is almost entirely the heat-up artifact, not a
+difference in print fidelity.  The fix is phase-aware scoring (weighting
+only printing-phase samples), but we report the uncalibrated numbers
+because the methodological point stands regardless: the policy is
+transparent and deterministic, encoded in the signed bundle itself, so any
+party can recompute and contest a rating from the evidence---unlike
+subjective ratings, which are unfalsifiable.
+
+\subsection{Limitations}
+
+(i)~The recorder polls OctoPrint's REST API rather than hooking its event
+bus, adding one software layer inside the T1 trust domain.  (ii)~A 5\,s
+poll can miss sub-interval transients; the thermal-anomaly run of
+Section~\ref{sec:eval_anomaly} captured a 60\,s excursion comfortably, but
+faster transients would require event-bus hooking or a shorter interval.
+(iii)~The evaluation is single-printer, five-job, three-geometry: the
+remaining gap is breadth across \emph{machines and sites}, not across jobs
+or part shapes.  One of the five runs (\icode{cube\_repeat}) had its
+recorder attach after warm-up, so we use it only as a completed-print data
+point and reserve the controlled quality comparison for the two
+idle-started cube runs---a reminder that capture must begin before heating
+for heat-up samples to be scored consistently.  (iv)~Outcome
+classification cannot separate cancellation from failure; the event-hook
+plugin can.  (v)~Bundle growth is linear in duration; summarization
+policies that retain raw extremes while downsampling steady state are
+future work.  (vi)~A read-only ledger query
+(\icode{GetAssetHistory}) currently fails an output-schema check
+(\icode{linkedRatingID}) on history events; this is a query-path defect
+only---all write-path commitments and the reputation updates of
+Section~\ref{sec:eval_reputation} succeed and verify---but it should be
+fixed before the trust-report view is relied upon operationally.

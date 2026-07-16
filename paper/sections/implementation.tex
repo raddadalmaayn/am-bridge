@@ -1,0 +1,48 @@
+% ===========================================================================
+\section{Implementation}
+\label{sec:implementation}
+% ===========================================================================
+
+All components are implemented and running; nothing in this section is
+simulated.
+
+\textbf{Hardware.}  A Creality Ender-3 FDM printer (8-bit Marlin-class
+controller, no secure element) driven over USB serial by
+OctoPrint~\cite{octoprint} on a Raspberry Pi---a deliberately
+representative \emph{legacy} setup, since the installed base of consumer
+printers offers no firmware attestation hooks: exactly the fleet T1
+targets.
+
+\textbf{Recorder} (\icode{capture\_poll.py}, Python~3).  During a job the
+recorder polls OctoPrint's read-only REST endpoints
+(\icode{/api/printer}, \icode{/api/job}) every 5\,s, appending each
+sample---nozzle and bed actuals and targets, job state---to a durable
+JSONL log so a crash loses at most one interval.  When a job it has
+observed printing leaves the printing states, it closes the capture and
+classifies the outcome (\icode{PrintDone} at $\geq$99.5\% completion, else
+\icode{PrintCancelled}).  Polling signs what OctoPrint \emph{reports}; an
+event-hook plugin capturing inside the print server is a straightforward
+hardening step within the same tier.
+
+\textbf{Attestation module} (\icode{attestation.py}) parses the G-code
+envelope, assembles the canonical bundle, and manages the device key.  The
+Ed25519 key~\cite{bernstein2012high} is generated on first use and
+persists on the bridge host (PKCS\#8 PEM); the device identity
+\icode{DEV:}$h_{16}$ is the truncated SHA-256 of the raw public key,
+doubling as the T2 registry key.
+
+\textbf{Ledger.}  Hyperledger Fabric v3.1.0 (two organizations, Raft
+ordering, TLS) running the unified chaincode
+of~\cite{anonymous2026unified} as Chaincode-as-a-Service.  The submission
+script drives the lifecycle:
+\icode{CreateMaterialCertification} binds the asset to the certified
+design hash, then \icode{RecordProvenanceWithReputation} commits the
+print-job event with the bundle hash, the derived rating
+(Eq.~\eqref{eq:rating}), and the payload's evidence hash; six queries
+(asset, history, linked ratings, reputation, trust report) verify the
+committed state end-to-end.
+
+The bridge required no chaincode changes: the existing
+\icode{offChainDataHash} field and integration path absorb the
+attestation layer as designed---evidence that hash-anchored provenance
+schemas generalize to authenticated evidence without ledger migration.

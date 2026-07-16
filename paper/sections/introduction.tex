@@ -1,0 +1,63 @@
+% ===========================================================================
+\section{Introduction}
+\label{sec:introduction}
+% ===========================================================================
+
+Additive manufacturing (AM) supply chains increasingly rely on
+permissioned blockchains for tamper-evident lifecycle records spanning
+material certification, printing, inspection, and final
+certification~\cite{alkhader2020blockchain, kurpjuweit2021blockchain}.
+Prior work, including our unified provenance--reputation
+chaincode~\cite{anonymous2026unified}, shows such records can be anchored
+cheaply and coupled atomically to on-chain trust scoring.  These systems
+share a rarely examined assumption: that the data arriving at the
+chaincode interface faithfully describes what happened on the factory
+floor.
+
+This assumption is an instance of the \emph{oracle
+problem}~\cite{caldarelli2020oracle}: a blockchain guarantees the integrity
+of data \emph{after} commitment, but says nothing about the process that
+produced the data.  In AM the stakes are concrete: sabotage attacks that
+alter process parameters or design files produce parts that pass visual
+inspection yet fail in service~\cite{belikovetsky2017dr0wned,
+yampolskiy2018security}, and a provenance ledger fed by an unauthenticated
+HTTP POST records such an attack as a valid lifecycle event.  The
+trustworthiness of the on-chain record therefore reduces to that of the
+\emph{physical-to-chain bridge}---the software and hardware path from the
+printer's sensors to the ledger commitment.
+
+This paper studies that bridge directly, with a working implementation on
+real hardware rather than simulation.  We make four contributions:
+
+\begin{enumerate}
+  \item \textbf{A threat-model-driven trust-tier analysis
+  (Section~\ref{sec:threat_model})} organizing bridge designs into four
+  tiers---T0 (na\"ive submission), T1 (edge-signed telemetry bundles), T2
+  (on-chain device registry), T3 (hardware root of trust)---stating
+  explicitly which attacks each tier defeats and which it does not.  T1
+  makes evidence tamper-evident after signing but cannot detect
+  fabrication at source by an adversary holding the device key; we treat
+  this boundary as a first-class result.
+
+  \item \textbf{A canonical, device-signed telemetry bundle format
+  (Section~\ref{sec:architecture})} binding, in one signed unit, the
+  certified design (G-code SHA-256), the commanded process envelope, the
+  observed telemetry, a derived adherence assessment, and the job
+  outcome.  Canonical JSON makes the bundle hash reproducible by any
+  verifier; that hash is the only artifact stored on-chain.
+
+  \item \textbf{An end-to-end T1 implementation on real hardware
+  (Section~\ref{sec:implementation}):} a Creality Ender-3, OctoPrint on a
+  Raspberry Pi, an Ed25519 device key, and Hyperledger Fabric v3.1.0
+  running our three-contract unified chaincode, evaluated on telemetry
+  captured from \emph{five real print jobs}---three geometries and three
+  outcome types, including a controlled thermal-anomaly injection---not
+  synthetic data.
+
+  \item \textbf{Physical adherence as a reputation signal
+  (Section~\ref{sec:arch_integration}):} the assessment maps thermal
+  adherence, design-hash compliance, and timeliness onto the $[0,1]$
+  rating consumed by an on-chain Bayesian reputation engine, so one
+  atomic transaction records the provenance event \emph{and} updates the
+  operator's per-dimension trust posterior.
+\end{enumerate}

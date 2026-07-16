@@ -1,0 +1,100 @@
+% =============================================================================
+% main.tex — IEEE conference paper
+% Closing the Physical-to-Chain Gap: Tamper-Evident Provenance Attestation
+% for Additive Manufacturing Supply Chains
+%
+% Compile: pdflatex main && bibtex main && pdflatex main && pdflatex main
+% (or upload the whole folder to Overleaf — see README.md)
+% =============================================================================
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+% --- Math ---
+\usepackage{amsmath,amssymb}
+
+% --- Graphics ---
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+
+% --- Color (load before tikz/hyperref) ---
+\usepackage[dvipsnames]{xcolor}
+
+% --- TikZ (architecture diagram) ---
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,fit,calc,backgrounds}
+
+% --- Tables ---
+\usepackage{booktabs}
+\usepackage{array}
+
+% --- Code listings ---
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\fontsize{6}{7}\selectfont,
+  breaklines=true,
+  breakatwhitespace=false,
+  frame=single,
+  numbers=none,
+  keywordstyle=\color{blue!70!black}\bfseries,
+  commentstyle=\color{green!50!black}\itshape,
+  stringstyle=\color{red!60!black},
+  tabsize=2,
+  showstringspaces=false,
+  captionpos=b,
+  literate={_}{{\textunderscore\allowbreak}}{1}
+}
+
+% --- Misc ---
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{balance}
+\usepackage[hidelinks]{hyperref}
+
+% --- Local macros ---
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\icode}[1]{{\small\texttt{#1}}}
+
+\begin{document}
+
+\title{Closing the Physical-to-Chain Gap: Tamper-Evident Provenance
+Attestation for Additive Manufacturing Supply Chains}
+
+\author{%
+\IEEEauthorblockN{Author One\IEEEauthorrefmark{1},
+                  Author Two\IEEEauthorrefmark{1},
+                  Author Three\IEEEauthorrefmark{2}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Department, University, City, Country\\
+Email: \{author.one, author.two\}@university.edu}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}Department, Institution, City, Country\\
+Email: author.three@institution.edu}
+% \thanks{This work was supported by ...}
+}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\begin{IEEEkeywords}
+additive manufacturing, blockchain, provenance, oracle problem, attestation,
+Hyperledger Fabric, reputation systems, supply chain security
+\end{IEEEkeywords}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/threat_model}
+\input{sections/architecture}
+\input{sections/implementation}
+\input{sections/evaluation}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+% \section*{Acknowledgment}
+% ...
+
+\balance
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

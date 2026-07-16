@@ -1,0 +1,53 @@
+% ===========================================================================
+\section{Related Work}
+\label{sec:related_work}
+% ===========================================================================
+
+\textbf{Blockchain provenance for AM.}
+Traceability frameworks for AM record lifecycle events on permissioned
+ledgers, typically Hyperledger Fabric~\cite{androulaki2018hyperledger}:
+Alkhader et al.~\cite{alkhader2020blockchain} propose smart contracts for
+AM part traceability, and Kurpjuweit et al.~\cite{kurpjuweit2021blockchain}
+survey blockchain adoption across AM supply chains.  Our prior
+work~\cite{anonymous2026unified} co-deploys provenance, reputation, and
+integration contracts in one Fabric chaincode so lifecycle evidence and
+actor trust scores update atomically, anchoring $\sim$337\,B of metadata
+per event with an off-chain artifact hash.  All of these systems, ours
+included, accept submitted event data at face value: the chaincode
+validates \emph{who} submitted and \emph{whether the lifecycle transition
+is legal}, not whether the reported physical process occurred.  This paper
+addresses that residual gap.
+
+\textbf{The oracle problem.}
+The gap manifests the blockchain oracle
+problem~\cite{caldarelli2020oracle}: smart contracts cannot verify
+real-world facts, so external data carriers reintroduce the trusted third
+party the ledger was meant to remove.  Decentralized oracle networks such
+as Chainlink~\cite{breidenbach2021chainlink} mitigate this for
+\emph{redundantly observable} data (e.g., market prices) by aggregating
+independent reporters; manufacturing telemetry is not redundantly
+observable---only the machine that printed the part witnessed its thermal
+history---so the problem shifts to \emph{authenticating the single
+witness}.  Town Crier~\cite{zhang2016towncrier} does this for web sources
+using SGX~\cite{costan2016sgx} enclaves; our T3 tier
+(Section~\ref{sec:tiers}) is the AM-floor analogue, while T1/T2 are
+deployable intermediates needing no trusted hardware on legacy printers.
+
+\textbf{AM security.}
+Yampolskiy et al.~\cite{yampolskiy2018security} taxonomize AM attacks,
+including sabotage via manipulated process parameters; the dr0wned
+attack~\cite{belikovetsky2017dr0wned} demonstrated design-file sabotage
+producing a drone propeller that failed in flight.  Such attacks motivate
+binding the \emph{executed} design hash and \emph{observed} process
+envelope into the provenance record.
+
+\textbf{Reputation systems.}
+Beta-distribution models~\cite{josang2002beta, josang2007survey} provide
+constant-time Bayesian trust updates; EigenTrust~\cite{kamvar2003eigentrust}
+popularized transitive peer trust.  On-chain reputation systems typically
+depend on \emph{subjective} ratings; our bridge instead derives the rating
+from measured physical adherence, grounding the signal in sensor evidence
+whose integrity the attestation layer protects.  To our knowledge, no
+prior AM-blockchain work implements and evaluates a device-signed,
+canonically hashed telemetry attestation path on real printer hardware
+with an explicit statement of its trust boundary.

@@ -1,0 +1,147 @@
+% ===========================================================================
+\section{Threat Model and Trust Tiers}
+\label{sec:threat_model}
+% ===========================================================================
+
+\subsection{Setting and Actors}
+\label{sec:actors}
+
+We consider a multi-organization AM supply chain in which a \emph{print
+bureau} executes jobs against designs certified earlier in the lifecycle,
+and downstream consumers (inspectors, certifiers, buyers) rely on the
+on-chain record.  The bridge path comprises:
+
+\begin{itemize}
+  \item \textbf{Printer.} The machine and its firmware, reporting hotend
+        and bed temperatures and job state over serial.  Consumer printers
+        such as the Ender-3 have no secure element and no firmware
+        attestation.
+  \item \textbf{Bridge host.} An edge device (Raspberry Pi) running the
+        print server, the telemetry recorder, and---at T1 and above---the
+        device signing key.
+  \item \textbf{Print bureau organization.} The Fabric member (MSP)
+        operating the printer; \emph{economically motivated to appear
+        reliable}, since its on-chain reputation gates future
+        work~\cite{anonymous2026unified}.
+  \item \textbf{Network.} The bridge-host-to-peer path (TLS-protected
+        gRPC in our deployment).
+\end{itemize}
+
+The Fabric layer (ordering, endorsement, validation) is assumed correct;
+consensus attacks are out of scope.  The adversary of interest is an
+insider or intruder on the bridge path who wants the ledger to show a
+conforming print that did not occur as recorded.
+
+\subsection{Tamper Taxonomy}
+\label{sec:taxonomy}
+
+Table~\ref{tab:taxonomy} classifies the manipulations the bridge must
+consider, ordered by where in the pipeline they occur.
+
+\begin{table}[t]
+\caption{Tamper taxonomy for the physical-to-chain bridge.}
+\label{tab:taxonomy}
+\centering
+\scriptsize
+\begin{tabular}{@{}p{2.3cm}p{3.0cm}p{1.9cm}@{}}
+\toprule
+\textbf{Manipulation} & \textbf{Description} & \textbf{Detected by} \\
+\midrule
+Post-hoc evidence tampering & Stored telemetry edited after submission to
+hide a deviation & T1: ledger-hash mismatch \emph{and} signature failure \\
+\addlinespace
+Replay across assets & Evidence from a good print resubmitted for a
+different part or design & T1: G-code SHA-256 binding; chaincode lifecycle
+state machine \\
+\addlinespace
+Design substitution & Job executed from a G-code file other than the
+certified one & T1: \icode{compliance} dimension scores 0 on hash mismatch \\
+\addlinespace
+Fabricated telemetry & Recorder fed false samples, or bundle synthesized
+outright, then \emph{validly signed} & \textbf{Not} detected at T1
+(trust boundary); T3 required \\
+\addlinespace
+Stolen / cloned device key & Signing key exfiltrated from the bridge host
+and used elsewhere & T2 registry limits scope; revocation; T3 binds key to
+hardware \\
+\addlinespace
+Colluding organization & Bureau admin controls host, key, and MSP identity
+& T3 plus cross-organization inspection events \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Trust Tiers}
+\label{sec:tiers}
+
+We organize bridge designs into four cumulative tiers
+(Table~\ref{tab:tiers}).  Each tier strictly extends the guarantees of the
+previous one; equally important is what each tier does \emph{not}
+guarantee.
+
+\begin{table*}[t]
+\caption{Trust-tier ladder for the physical-to-chain bridge.  Each tier is cumulative over the previous one.}
+\label{tab:tiers}
+\centering
+\scriptsize
+\begin{tabular}{@{}lp{3.9cm}p{4.9cm}p{4.9cm}@{}}
+\toprule
+\textbf{Tier} & \textbf{Mechanism} & \textbf{Defends against} & \textbf{Does NOT defend against} \\
+\midrule
+T0 & Na\"ive submission: client POSTs event fields under an org MSP
+identity &
+Nothing on the bridge path; only on-chain immutability after commit &
+Any manipulation before or at submission; evidence unauthenticated and
+unbound to the artifact \\
+\addlinespace
+T1 & Edge-signed canonical bundle: device-resident Ed25519 key signs the
+payload; SHA-256 of signed bundle committed on-chain (\textbf{this
+paper}) &
+Post-hoc evidence tampering (dual detection); replay across assets/designs
+(G-code hash binding); silent design substitution; in-flight modification &
+Fabrication at source by a device-key holder; key theft from the
+unhardened host; bureau--host collusion \\
+\addlinespace
+T2 & On-chain device registry: chaincode verifies the bundle signature at
+endorsement time; key enrollment/revocation are ledger events &
+Bundles signed by unregistered or revoked keys; bounds a stolen key's
+validity window; auditable device identity &
+Fabrication at source by the \emph{registered} key holder; the registry
+authenticates the key, not the physics \\
+\addlinespace
+T3 & Hardware root of trust: key in TEE/secure
+element~\cite{costan2016sgx}, measured boot, sensor-level signing or
+threshold attestation across independent observers &
+Compromised host OS; key extraction; recorder substitution; raises
+fabrication cost to hardware-attack level &
+Physical-world spoofing by a fully malicious organization (e.g.,
+detached thermistors) \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsubsection{The T1 trust boundary, stated plainly}
+\label{sec:boundary}
+
+T1's guarantee is \emph{tamper-evidence after signing}, not \emph{truth at
+the source}.  An adversary who controls the bridge host---and therefore
+the device key---can synthesize a plausible telemetry bundle, sign it, and
+commit its hash; nothing in T1 or T2 distinguishes this from an honest
+capture, because the signature attests to the key, not to the physics.  T1
+is nevertheless the correct first rung for legacy fleets: it converts the
+dominant practical threats (retroactive log editing, evidence reuse, quiet
+design substitution---all cheap, deniable, and otherwise undetectable)
+into cryptographically detectable events, with no hardware changes.  The
+fabrication-at-source residual is the gap T3 targets
+(Section~\ref{sec:discussion}).
+
+Two further properties come from the chaincode rather than the bridge.
+The lifecycle state machine~\cite{anonymous2026unified} rejects a
+\icode{PRINT\_JOB} event for an asset not in the
+\icode{MATERIAL\_CERTIFIED} stage, so replayed evidence cannot attach to
+an arbitrary asset even if its hash is fresh.  And because the bundle's
+rating updates the operator's Beta posterior atomically with the
+provenance event (Section~\ref{sec:arch_integration}), selectively
+committing only flattering evidence leaves a sparse, low-confidence
+rating history that the Wilson confidence-interval
+gate~\cite{anonymous2026unified} penalizes directly.

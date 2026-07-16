@@ -1,0 +1,31 @@
+Blockchain provenance for additive manufacturing (AM) is only as
+trustworthy as the last-mile bridge that converts physical process data
+into on-chain commitments---an instance of the oracle problem that
+existing AM provenance work leaves largely unaddressed.  We present a
+threat-model-driven attestation architecture for the printer-to-ledger
+path: a four-tier trust ladder (T0 na\"ive submission, T1 edge-signed
+telemetry bundles, T2 on-chain device registry, T3 hardware root of
+trust) stating explicitly what each tier does and does not defend
+against, and a canonical, device-signed telemetry bundle that binds the
+certified design (G-code SHA-256), the commanded process envelope, the
+observed telemetry, and the job outcome into one Ed25519-signed unit
+whose hash is committed on-chain.  We implement the T1 tier end-to-end on
+real hardware---a Creality Ender-3, OctoPrint on a Raspberry Pi, and
+Hyperledger Fabric v3.1.0---and integrate it with an on-chain Bayesian
+reputation system, so measured physical adherence becomes a per-actor,
+per-dimension trust signal within one atomic transaction.  We evaluate on
+\textbf{five real print jobs} spanning three geometries (a complex part, a
+calibration cube, and a functional mounting bracket) and three outcome
+types (completed, cancelled, and an injected thermal anomaly).  In a
+controlled comparison, a $+15\,^{\circ}$C setpoint injection lowered the
+derived quality score by 9.3\% while design-hash compliance stayed at
+1.0---the bridge separates faithful execution from design substitution
+using telemetry alone.  Each job produced a 7--14-kB signed bundle anchored
+by a constant 369-B on-chain footprint and updated the operator's Beta
+posterior, whose 95\% confidence interval tightened from width 0.684 to
+0.561 as attested evidence accumulated; the full attestation pipeline runs
+in 1.55\,ms, under 3\% of the ledger-commit cost.  A single flipped sample
+was detected by two independent mechanisms (ledger-hash mismatch and
+signature failure).  We state the trust boundary honestly: edge signing
+makes evidence tamper-evident, but cannot prevent fabrication at source by
+a colluding device-key holder---the gap the T2/T3 tiers target.

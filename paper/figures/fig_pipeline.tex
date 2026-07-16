@@ -1,0 +1,58 @@
+% TikZ: physical-to-chain bridge pipeline with trust-boundary annotations.
+% \input{} from sections/architecture.tex inside a figure* environment.
+\begin{tikzpicture}[
+  font=\footnotesize,
+  node distance=4mm and 6mm,
+  box/.style={draw, rounded corners=1pt, align=center, inner sep=3pt,
+              minimum height=8mm, fill=white},
+  hw/.style={box, fill=gray!12},
+  chain/.style={box, fill=blue!8},
+  arr/.style={-{Stealth[length=2mm]}, thick},
+  lbl/.style={font=\scriptsize, midway, align=center},
+  boundary/.style={draw, dashed, rounded corners=3pt, inner sep=5pt},
+]
+
+% --- Physical / edge nodes ---
+\node[hw] (printer) {Ender-3\\printer};
+\node[hw, right=of printer] (octo) {OctoPrint\\(Raspberry Pi)};
+\node[box, right=of octo] (rec) {Recorder\\poll 5\,s, JSONL};
+\node[box, right=of rec] (att) {Attestation\\canonical JSON\\Ed25519 sign};
+\node[box, right=8mm of att] (gw) {Org gateway\\(Fabric client,\\org MSP)};
+\node[chain, right=8mm of gw] (cc) {Unified chaincode\\\icode{RecordProvenance-}\\\icode{WithReputation}};
+
+% --- Below attestation: the two artifacts it emits ---
+\node[box, below=6mm of att, xshift=-11mm] (bundle) {Signed bundle\\(off-chain store)};
+\node[box, below=6mm of att, xshift=14mm] (hash) {\icode{sha256(bundle)}\\= \icode{offChainDataHash}};
+
+% --- Below chaincode: ledger effects ---
+\node[chain, below=6mm of cc, xshift=-12mm] (event) {Provenance\\event + link};
+\node[chain, below=6mm of cc, xshift=13mm] (rep) {Beta posterior\\update};
+
+% --- Edges ---
+\draw[arr] (printer) -- node[lbl, above] {USB\\serial} (octo);
+\draw[arr] (octo) -- node[lbl, above] {REST\\(read-only)} (rec);
+\draw[arr] (rec) -- node[lbl, above] {samples +\\outcome} (att);
+\draw[arr] (att) -- node[lbl, above] {submit\\args} (gw);
+\draw[arr] (gw) -- node[lbl, above] {gRPC\\+ TLS} (cc);
+\draw[arr] (att) -- (bundle);
+\draw[arr] (att) -- (hash);
+\draw[arr] (cc) -- (event);
+\draw[arr] (cc) -- (rep);
+
+% --- Trust boundaries (background layer) ---
+\begin{scope}[on background layer]
+  \node[boundary, color=red!70!black,
+        fit=(printer)(octo)(rec)(att)(bundle)(hash),
+        label={[red!70!black, font=\scriptsize\itshape]
+               below:device trust domain (T1): device key signs what the
+               recorder observed --- authenticity at source is assumed}]
+        {};
+  \node[boundary, color=blue!60!black, fit=(gw),
+        label={[blue!60!black, font=\scriptsize\itshape]below:org MSP
+               domain}] {};
+  \node[boundary, color=green!50!black, fit=(cc)(event)(rep),
+        label={[green!50!black, font=\scriptsize\itshape]below:consensus
+               domain (endorse, order, validate)}] {};
+\end{scope}
+
+\end{tikzpicture}
