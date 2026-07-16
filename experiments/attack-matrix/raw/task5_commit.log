@@ -1,0 +1,12 @@
+# Task 5(e) — commit substitution bundle + reputation veto propagation
+## operator-secnet quality BEFORE commit:
+{"actorId":"operator-secnet","alpha":16.76915707756377,"beta":2,"confidenceHigh":0.970274639139546,"confidenceLow":0.6829169823041663,"dimension":"quality","lastTs":1783456143,"score":0.8934422045840964,"totalEvents":26}
+
+## Commit RecordProvenanceWithReputation (asset PART-CUBE-SUBST-01, rating=0.57, dimension=quality):
+rc=0
+
+## operator-secnet quality AFTER commit:
+{"actorId":"operator-secnet","alpha":17.207797681808316,"beta":2,"confidenceHigh":0.9709651132713097,"confidenceLow":0.6888264306010508,"dimension":"quality","lastTs":1783456523,"score":0.8958756212902952,"totalEvents":27}
+
+## Linked rating on the asset (confirms r=0.57 landed on-chain):
+[{"ratingId":"RATING:49365a0a48334b9811cf89b92b07e9ba","raterId":"org1admin","actorId":"operator-secnet","dimension":"quality","value":0.57,"weight":0.7672612419124244,"evidence":"0c0b8864502c9404863291edee1ba8f2ca7de0fbc8d7df18825a24f268a0621e","timestamp":1783456523,"txId":"07f386723b8941793267107fc7b0159296a1d31967c216025c7f38f1ef5e4ae2","linkedAssetId":"PART-CUBE-SUBST-01","linkedEventTx":"07f386723b8941793267107fc7b0159296a1d31967c216025c7f38f1ef5e4ae2"}]

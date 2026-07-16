@@ -1,0 +1,169 @@
+{
+  "payload": {
+    "schema": "am-provenance/telemetry-bundle/v1",
+    "assetId": "PART-CUBE-SUBST-01",
+    "eventType": "PRINT_JOB",
+    "machine": "Creality Ender-3",
+    "design": {
+      "gcode_filename": "calibration_cube_20mm.gcode",
+      "gcode_sha256": "dec2a69dc80df985e2cacb50cc3d0c248c90fd6610b000905a80e66eca62f801",
+      "gcode_bytes": 20076,
+      "slicer": "Cura_SteamEngine 5.12.0",
+      "flavor": "Marlin",
+      "expected_nozzle_c": 200.0,
+      "expected_bed_c": 50.0,
+      "expected_layers": 50,
+      "expected_time_s": 306,
+      "filament_m": 0.2608
+    },
+    "observed": {
+      "source": "SIMULATED_NO_PRINTER",
+      "tolerance_c": 8.0,
+      "actual_time_s": 285,
+      "executed_gcode_sha256": "3a886e67a14fb00b05dd417c5fd6021436a9564a7905309917fc4cae66607ad0",
+      "samples": [
+        {
+          "t": 1000,
+          "nozzle_c": 0.0,
+          "bed_c": 0.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1015,
+          "nozzle_c": 33.3,
+          "bed_c": 8.3,
+          "state": "Printing"
+        },
+        {
+          "t": 1030,
+          "nozzle_c": 66.7,
+          "bed_c": 16.7,
+          "state": "Printing"
+        },
+        {
+          "t": 1045,
+          "nozzle_c": 100.0,
+          "bed_c": 25.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1060,
+          "nozzle_c": 133.3,
+          "bed_c": 33.3,
+          "state": "Printing"
+        },
+        {
+          "t": 1075,
+          "nozzle_c": 166.7,
+          "bed_c": 41.7,
+          "state": "Printing"
+        },
+        {
+          "t": 1090,
+          "nozzle_c": 200.5,
+          "bed_c": 49.8,
+          "state": "Printing"
+        },
+        {
+          "t": 1105,
+          "nozzle_c": 199.4,
+          "bed_c": 49.9,
+          "state": "Printing"
+        },
+        {
+          "t": 1120,
+          "nozzle_c": 200.3,
+          "bed_c": 50.3,
+          "state": "Printing"
+        },
+        {
+          "t": 1135,
+          "nozzle_c": 200.1,
+          "bed_c": 49.6,
+          "state": "Printing"
+        },
+        {
+          "t": 1150,
+          "nozzle_c": 199.6,
+          "bed_c": 50.3,
+          "state": "Printing"
+        },
+        {
+          "t": 1165,
+          "nozzle_c": 200.6,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1180,
+          "nozzle_c": 199.5,
+          "bed_c": 49.8,
+          "state": "Printing"
+        },
+        {
+          "t": 1195,
+          "nozzle_c": 200.1,
+          "bed_c": 50.4,
+          "state": "Printing"
+        },
+        {
+          "t": 1210,
+          "nozzle_c": 200.3,
+          "bed_c": 49.6,
+          "state": "Printing"
+        },
+        {
+          "t": 1225,
+          "nozzle_c": 199.4,
+          "bed_c": 50.1,
+          "state": "Printing"
+        },
+        {
+          "t": 1240,
+          "nozzle_c": 200.6,
+          "bed_c": 50.1,
+          "state": "Printing"
+        },
+        {
+          "t": 1255,
+          "nozzle_c": 199.7,
+          "bed_c": 49.7,
+          "state": "Printing"
+        },
+        {
+          "t": 1270,
+          "nozzle_c": 199.9,
+          "bed_c": 50.4,
+          "state": "Printing"
+        },
+        {
+          "t": 1285,
+          "nozzle_c": 200.5,
+          "bed_c": 49.7,
+          "state": "Printing"
+        }
+      ]
+    },
+    "assessment": {
+      "quality": 0.7,
+      "delivery": 1.0,
+      "compliance": 0.0,
+      "thermal_samples_in_tol": 28,
+      "thermal_samples_total": 40,
+      "thermal_samples_total_unfiltered": 40,
+      "rating_value": 0.57
+    },
+    "outcome": "PrintCancelled",
+    "window": {
+      "started": "(sim start)",
+      "ended": "(sim cancel)"
+    }
+  },
+  "attestation": {
+    "alg": "Ed25519",
+    "signed_field": "payload",
+    "device_id": "DEV:1cf20afaacb6ed6b",
+    "pubkey": "58363123af2b947b3434f11297e6e6a625b23db6dede431a317a581e52ef0b8c",
+    "signature": "0806565f682e13383e6d1866273da3ec32001c18e1708843108026bfddf18a30cc64dd9b342f74a70727c703553981a8c9afab68ed959d42393dd4acb0e0c003"
+  }
+}

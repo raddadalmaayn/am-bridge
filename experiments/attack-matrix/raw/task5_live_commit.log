@@ -1,0 +1,15 @@
+# Task 5(e) LIVE — commit real-print substitution bundle + veto propagation
+## operator-secnet quality BEFORE commit:
+{"actorId":"operator-secnet","alpha":17.1991164005111,"beta":2,"confidenceHigh":0.9709517592540832,"confidenceLow":0.6887116008736404,"dimension":"quality","lastTs":1783456523,"score":0.8958285392786745,"totalEvents":27}
+
+## Commit RecordProvenanceWithReputation (PART-CUBE-SUBST-LIVE-01, r=0.5005, quality):
+rc=0
+
+## operator-secnet quality AFTER commit:
+{"actorId":"operator-secnet","alpha":17.591808018210187,"beta":2,"confidenceHigh":0.9715437762177411,"confidenceLow":0.6938228664017928,"dimension":"quality","lastTs":1783458968,"score":0.8979165170391094,"totalEvents":28}
+
+## Linked rating on the asset (confirms r=0.5005 on-chain):
+[{"ratingId":"RATING:a8ebd57c64c102d03402029936a97d11","raterId":"org1admin","actorId":"operator-secnet","dimension":"quality","value":0.5005,"weight":0.7672612419124244,"evidence":"2c9e10254cdd7a2bf4589aac310e48830cfbb6cc48318b7135ab9d0424c2c255","timestamp":1783458968,"txId":"64550ab5152a4d564ae97c3b55e6ed3905ff3c20f219d8e1575fe316b30414f7","linkedAssetId":"PART-CUBE-SUBST-LIVE-01","linkedEventTx":"64550ab5152a4d564ae97c3b55e6ed3905ff3c20f219d8e1575fe316b30414f7"}]
+
+## Asset final stage:
+{"assetID":"PART-CUBE-SUBST-LIVE-01","owner":"Org1MSP","currentLifecycleStage":"PRINT_COMPLETE","historyTxIDs":["12247f3241753dd66964b53e9ad0a2e670cfd230feedee4ee4704f23e4d87e47","64550ab5152a4d564ae97c3b55e6ed3905ff3c20f219d8e1575fe316b30414f7"]}

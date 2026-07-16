@@ -1,0 +1,21 @@
+----------------------------------------------------------------------
+Task 2(b): attach cube bundle evidence to bracket-certified asset
+----------------------------------------------------------------------
+asset XASSET-BRACKET-01 certified design hash : 48f7790a773da49cecc2b9806ca4f8e4f915d642646ef74fd0f754ff246a6150
+cube bundle  design.gcode_sha256              : dec2a69dc80df985e2cacb50cc3d0c248c90fd6610b000905a80e66eca62f801
+cube bundle  observed.executed_gcode_sha256   : dec2a69dc80df985e2cacb50cc3d0c248c90fd6610b000905a80e66eca62f801
+
+[CHECK A] design-hash binding (bundle.design vs on-chain certified):
+    MISMATCH -> REJECT
+    error: DESIGN-BINDING MISMATCH: bundle design dec2a69dc80d.. != certified 48f7790a773d.. for asset XASSET-BRACKET-01
+
+[CHECK B] off-chain assess() compliance vs certified (bracket) design:
+    executed(cube) == expected(bracket)? False
+    q=0.7803  c=0.0  d=0.9299
+    rating with compliance term      r = 0.6q+0.25c+0.15d = 0.6077
+    Eq.2 veto (compliance=0)         r = 0.6q+0.15d       = 0.6077
+    -> compliance=0 vetoes the 0.25 term; rating drops to 0.6077
+----------------------------------------------------------------------
+REJECTED BY: design-hash binding (Check A) — the cube evidence does not
+bind to the bracket asset's certified design; and independently the
+compliance dimension collapses to 0, vetoing the reputation contribution.

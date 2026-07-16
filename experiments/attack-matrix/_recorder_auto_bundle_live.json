@@ -1,0 +1,849 @@
+{
+  "payload": {
+    "schema": "am-provenance/telemetry-bundle/v1",
+    "assetId": "PART-CUBE-SUBST-LIVE-01",
+    "eventType": "PRINT_JOB",
+    "machine": "Creality Ender-3",
+    "design": {
+      "gcode_filename": "calibration_cube_20mm.gcode",
+      "gcode_sha256": "dec2a69dc80df985e2cacb50cc3d0c248c90fd6610b000905a80e66eca62f801",
+      "gcode_bytes": 20076,
+      "slicer": "Cura_SteamEngine 5.12.0",
+      "flavor": "Marlin",
+      "expected_nozzle_c": 200.0,
+      "expected_bed_c": 50.0,
+      "expected_layers": 50,
+      "expected_time_s": 306,
+      "filament_m": 0.2608
+    },
+    "observed": {
+      "source": "OCTOPRINT_POLL",
+      "tolerance_c": 8.0,
+      "actual_time_s": 509,
+      "executed_gcode_sha256": "dec2a69dc80df985e2cacb50cc3d0c248c90fd6610b000905a80e66eca62f801",
+      "samples": [
+        {
+          "t": 1783458393,
+          "nozzle_c": 21.37,
+          "nozzle_target": 0.0,
+          "bed_c": 21.41,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458399,
+          "nozzle_c": 21.25,
+          "nozzle_target": 0.0,
+          "bed_c": 21.37,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458404,
+          "nozzle_c": 21.29,
+          "nozzle_target": 0.0,
+          "bed_c": 21.45,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458409,
+          "nozzle_c": 21.25,
+          "nozzle_target": 0.0,
+          "bed_c": 21.52,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458415,
+          "nozzle_c": 21.25,
+          "nozzle_target": 0.0,
+          "bed_c": 21.48,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458420,
+          "nozzle_c": 21.33,
+          "nozzle_target": 0.0,
+          "bed_c": 21.64,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458425,
+          "nozzle_c": 21.29,
+          "nozzle_target": 0.0,
+          "bed_c": 21.45,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458430,
+          "nozzle_c": 21.37,
+          "nozzle_target": 0.0,
+          "bed_c": 21.56,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458436,
+          "nozzle_c": 21.25,
+          "nozzle_target": 0.0,
+          "bed_c": 21.45,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458441,
+          "nozzle_c": 21.33,
+          "nozzle_target": 0.0,
+          "bed_c": 21.45,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458446,
+          "nozzle_c": 21.25,
+          "nozzle_target": 0.0,
+          "bed_c": 21.52,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458452,
+          "nozzle_c": 21.29,
+          "nozzle_target": 0.0,
+          "bed_c": 21.6,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458457,
+          "nozzle_c": 21.33,
+          "nozzle_target": 0.0,
+          "bed_c": 21.45,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458462,
+          "nozzle_c": 21.21,
+          "nozzle_target": 0.0,
+          "bed_c": 21.45,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458468,
+          "nozzle_c": 21.25,
+          "nozzle_target": 0.0,
+          "bed_c": 21.45,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458473,
+          "nozzle_c": 21.41,
+          "nozzle_target": 0.0,
+          "bed_c": 21.41,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458478,
+          "nozzle_c": 21.41,
+          "nozzle_target": 0.0,
+          "bed_c": 21.37,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458483,
+          "nozzle_c": 21.37,
+          "nozzle_target": 0.0,
+          "bed_c": 21.41,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458488,
+          "nozzle_c": 21.25,
+          "nozzle_target": 0.0,
+          "bed_c": 21.48,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458493,
+          "nozzle_c": 21.48,
+          "nozzle_target": 0.0,
+          "bed_c": 21.56,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458499,
+          "nozzle_c": 21.41,
+          "nozzle_target": 0.0,
+          "bed_c": 21.45,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458504,
+          "nozzle_c": 21.37,
+          "nozzle_target": 0.0,
+          "bed_c": 21.64,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458509,
+          "nozzle_c": 21.52,
+          "nozzle_target": 0.0,
+          "bed_c": 21.56,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458515,
+          "nozzle_c": 21.48,
+          "nozzle_target": 0.0,
+          "bed_c": 21.64,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458520,
+          "nozzle_c": 21.37,
+          "nozzle_target": 0.0,
+          "bed_c": 21.64,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458525,
+          "nozzle_c": 21.33,
+          "nozzle_target": 0.0,
+          "bed_c": 21.76,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458530,
+          "nozzle_c": 21.33,
+          "nozzle_target": 0.0,
+          "bed_c": 21.6,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458536,
+          "nozzle_c": 21.33,
+          "nozzle_target": 0.0,
+          "bed_c": 21.56,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458541,
+          "nozzle_c": 21.41,
+          "nozzle_target": 0.0,
+          "bed_c": 21.68,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458546,
+          "nozzle_c": 21.41,
+          "nozzle_target": 0.0,
+          "bed_c": 21.64,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458551,
+          "nozzle_c": 21.41,
+          "nozzle_target": 0.0,
+          "bed_c": 21.64,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458556,
+          "nozzle_c": 21.33,
+          "nozzle_target": 0.0,
+          "bed_c": 21.48,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458561,
+          "nozzle_c": 21.41,
+          "nozzle_target": 0.0,
+          "bed_c": 21.6,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458567,
+          "nozzle_c": 21.37,
+          "nozzle_target": 0.0,
+          "bed_c": 21.48,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458572,
+          "nozzle_c": 21.48,
+          "nozzle_target": 0.0,
+          "bed_c": 21.64,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458577,
+          "nozzle_c": 21.52,
+          "nozzle_target": 0.0,
+          "bed_c": 21.48,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458582,
+          "nozzle_c": 21.52,
+          "nozzle_target": 0.0,
+          "bed_c": 21.64,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458587,
+          "nozzle_c": 21.48,
+          "nozzle_target": 0.0,
+          "bed_c": 21.56,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458592,
+          "nozzle_c": 21.41,
+          "nozzle_target": 0.0,
+          "bed_c": 21.64,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458597,
+          "nozzle_c": 21.52,
+          "nozzle_target": 0.0,
+          "bed_c": 21.56,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458602,
+          "nozzle_c": 21.52,
+          "nozzle_target": 0.0,
+          "bed_c": 21.56,
+          "bed_target": 0.0,
+          "state": "Operational"
+        },
+        {
+          "t": 1783458607,
+          "nozzle_c": 21.37,
+          "nozzle_target": 200.0,
+          "bed_c": 21.68,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458612,
+          "nozzle_c": 31.95,
+          "nozzle_target": 200.0,
+          "bed_c": 22.54,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458617,
+          "nozzle_c": 47.29,
+          "nozzle_target": 200.0,
+          "bed_c": 24.37,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458622,
+          "nozzle_c": 61.24,
+          "nozzle_target": 200.0,
+          "bed_c": 26.28,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458627,
+          "nozzle_c": 74.27,
+          "nozzle_target": 200.0,
+          "bed_c": 28.12,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458632,
+          "nozzle_c": 86.48,
+          "nozzle_target": 200.0,
+          "bed_c": 30.0,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458638,
+          "nozzle_c": 98.49,
+          "nozzle_target": 200.0,
+          "bed_c": 32.08,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458643,
+          "nozzle_c": 109.49,
+          "nozzle_target": 200.0,
+          "bed_c": 34.32,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458648,
+          "nozzle_c": 120.18,
+          "nozzle_target": 200.0,
+          "bed_c": 36.31,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458653,
+          "nozzle_c": 130.37,
+          "nozzle_target": 200.0,
+          "bed_c": 38.17,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458658,
+          "nozzle_c": 140.14,
+          "nozzle_target": 200.0,
+          "bed_c": 39.96,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458663,
+          "nozzle_c": 149.66,
+          "nozzle_target": 200.0,
+          "bed_c": 41.78,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458668,
+          "nozzle_c": 159.63,
+          "nozzle_target": 200.0,
+          "bed_c": 43.9,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458673,
+          "nozzle_c": 167.14,
+          "nozzle_target": 200.0,
+          "bed_c": 45.35,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458678,
+          "nozzle_c": 176.48,
+          "nozzle_target": 200.0,
+          "bed_c": 47.22,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458683,
+          "nozzle_c": 183.1,
+          "nozzle_target": 200.0,
+          "bed_c": 48.54,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458688,
+          "nozzle_c": 192.56,
+          "nozzle_target": 200.0,
+          "bed_c": 50.23,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458693,
+          "nozzle_c": 196.45,
+          "nozzle_target": 200.0,
+          "bed_c": 50.61,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458699,
+          "nozzle_c": 197.73,
+          "nozzle_target": 200.0,
+          "bed_c": 50.48,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458704,
+          "nozzle_c": 199.2,
+          "nozzle_target": 200.0,
+          "bed_c": 50.23,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458709,
+          "nozzle_c": 200.38,
+          "nozzle_target": 200.0,
+          "bed_c": 49.74,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458714,
+          "nozzle_c": 200.49,
+          "nozzle_target": 200.0,
+          "bed_c": 49.74,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458719,
+          "nozzle_c": 200.21,
+          "nozzle_target": 200.0,
+          "bed_c": 49.95,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458724,
+          "nozzle_c": 200.14,
+          "nozzle_target": 200.0,
+          "bed_c": 49.98,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458729,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 50.11,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458734,
+          "nozzle_c": 200.42,
+          "nozzle_target": 200.0,
+          "bed_c": 50.0,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458739,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 49.98,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458744,
+          "nozzle_c": 200.1,
+          "nozzle_target": 200.0,
+          "bed_c": 49.9,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458749,
+          "nozzle_c": 200.1,
+          "nozzle_target": 200.0,
+          "bed_c": 50.0,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458754,
+          "nozzle_c": 200.07,
+          "nozzle_target": 200.0,
+          "bed_c": 50.0,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458759,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 50.04,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458765,
+          "nozzle_c": 199.97,
+          "nozzle_target": 200.0,
+          "bed_c": 50.07,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458770,
+          "nozzle_c": 199.83,
+          "nozzle_target": 200.0,
+          "bed_c": 50.07,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458775,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 50.03,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458780,
+          "nozzle_c": 199.89,
+          "nozzle_target": 200.0,
+          "bed_c": 49.97,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458785,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 49.88,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458790,
+          "nozzle_c": 199.94,
+          "nozzle_target": 200.0,
+          "bed_c": 49.93,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458795,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 49.98,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458800,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 50.06,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458805,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 50.09,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458810,
+          "nozzle_c": 199.94,
+          "nozzle_target": 200.0,
+          "bed_c": 50.01,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458815,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 50.03,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458820,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 50.0,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458825,
+          "nozzle_c": 200.03,
+          "nozzle_target": 200.0,
+          "bed_c": 49.97,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458830,
+          "nozzle_c": 200.03,
+          "nozzle_target": 200.0,
+          "bed_c": 49.98,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458836,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 50.0,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458841,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 50.0,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458846,
+          "nozzle_c": 200.03,
+          "nozzle_target": 200.0,
+          "bed_c": 50.0,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458851,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 50.03,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458856,
+          "nozzle_c": 199.94,
+          "nozzle_target": 200.0,
+          "bed_c": 50.04,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458861,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 50.0,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458866,
+          "nozzle_c": 199.97,
+          "nozzle_target": 200.0,
+          "bed_c": 50.0,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458871,
+          "nozzle_c": 199.97,
+          "nozzle_target": 200.0,
+          "bed_c": 50.0,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458876,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 49.97,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458881,
+          "nozzle_c": 200.0,
+          "nozzle_target": 200.0,
+          "bed_c": 49.95,
+          "bed_target": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458886,
+          "nozzle_c": 200.03,
+          "nozzle_target": 0.0,
+          "bed_c": 49.95,
+          "bed_target": 0.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458891,
+          "nozzle_c": 196.82,
+          "nozzle_target": 0.0,
+          "bed_c": 49.72,
+          "bed_target": 0.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458896,
+          "nozzle_c": 188.31,
+          "nozzle_target": 0.0,
+          "bed_c": 49.47,
+          "bed_target": 0.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1783458902,
+          "nozzle_c": 182.26,
+          "nozzle_target": 0.0,
+          "bed_c": 49.18,
+          "bed_target": 0.0,
+          "state": "Operational"
+        }
+      ]
+    },
+    "assessment": {
+      "quality": 0.75,
+      "delivery": 0.3366,
+      "compliance": 1.0,
+      "thermal_samples_in_tol": 87,
+      "thermal_samples_total": 116,
+      "thermal_samples_total_unfiltered": 200,
+      "rating_value": 0.7505
+    },
+    "outcome": "PrintDone",
+    "window": {
+      "started": "(capture start)",
+      "ended": "(capture end)"
+    }
+  },
+  "attestation": {
+    "alg": "Ed25519",
+    "signed_field": "payload",
+    "device_id": "DEV:1cf20afaacb6ed6b",
+    "pubkey": "58363123af2b947b3434f11297e6e6a625b23db6dede431a317a581e52ef0b8c",
+    "signature": "68a07d7f217deab9522cd73be415d2f26a4dacd76f77181f8deae46c6a28d3fabf84489e0fbc6a2f3a47c2c2e43fe3b81043ddb8e6782130f851853ffef5b10f"
+  }
+}

@@ -1,0 +1,24 @@
+----------------------------------------------------------------------
+Task 5(d): design-substitution bundle assessment
+----------------------------------------------------------------------
+certified (original) design hash : dec2a69dc80df985e2cacb50cc3d0c248c90fd6610b000905a80e66eca62f801
+executed  (modified) gcode hash  : 3a886e67a14fb00b05dd417c5fd6021436a9564a7905309917fc4cae66607ad0
+executed == certified?           : False
+
+q (quality)    = 0.7
+c (compliance) = 0.0
+d (delivery)   = 1.0
+r  reported by assess() (0.6q+0.25c+0.15d) = 0.57
+r  Eq.2 veto            (0.6q+0.15d, c=0)  = 0.57
+   -> compliance=0 removes the 0.25 term; both equal 0.57 since c=0
+
+offChainDataHash = 52cb512933ce3fc027f6b4074ed9badc3fd57e0bf041a513a5a139b622ba180b
+evidenceHash     = 0c0b8864502c9404863291edee1ba8f2ca7de0fbc8d7df18825a24f268a0621e
+ratingValue      = 0.57
+
+capture log   -> <repo>/experiments/attack-matrix/capture_cube_substituted.jsonl
+signed bundle -> <repo>/experiments/attack-matrix/bundle_cube_substituted.json
+COMMIT_ASSET=PART-CUBE-SUBST-01
+COMMIT_OCH=52cb512933ce3fc027f6b4074ed9badc3fd57e0bf041a513a5a139b622ba180b
+COMMIT_EVH=0c0b8864502c9404863291edee1ba8f2ca7de0fbc8d7df18825a24f268a0621e
+COMMIT_RV=0.57

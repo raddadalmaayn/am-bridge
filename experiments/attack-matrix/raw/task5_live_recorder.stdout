@@ -1,0 +1,122 @@
+[recorder] polling http://<octoprint-host>:5000 every 5.0s -> experiments/attack-matrix/capture_cube_substituted_live.jsonl
+  t=1783458393 nozzle=21.37 bed=21.41 state=Operational done=None
+  t=1783458399 nozzle=21.25 bed=21.37 state=Operational done=None
+  t=1783458404 nozzle=21.29 bed=21.45 state=Operational done=None
+  t=1783458409 nozzle=21.25 bed=21.52 state=Operational done=None
+  t=1783458415 nozzle=21.25 bed=21.48 state=Operational done=None
+  t=1783458420 nozzle=21.33 bed=21.64 state=Operational done=None
+  t=1783458425 nozzle=21.29 bed=21.45 state=Operational done=None
+  t=1783458430 nozzle=21.37 bed=21.56 state=Operational done=None
+  t=1783458436 nozzle=21.25 bed=21.45 state=Operational done=None
+  t=1783458441 nozzle=21.33 bed=21.45 state=Operational done=None
+  t=1783458446 nozzle=21.25 bed=21.52 state=Operational done=None
+  t=1783458452 nozzle=21.29 bed=21.6 state=Operational done=None
+  t=1783458457 nozzle=21.33 bed=21.45 state=Operational done=None
+  t=1783458462 nozzle=21.21 bed=21.45 state=Operational done=None
+  t=1783458468 nozzle=21.25 bed=21.45 state=Operational done=None
+  t=1783458473 nozzle=21.41 bed=21.41 state=Operational done=None
+  t=1783458478 nozzle=21.41 bed=21.37 state=Operational done=None
+  t=1783458483 nozzle=21.37 bed=21.41 state=Operational done=None
+  t=1783458488 nozzle=21.25 bed=21.48 state=Operational done=None
+  t=1783458493 nozzle=21.48 bed=21.56 state=Operational done=None
+  t=1783458499 nozzle=21.41 bed=21.45 state=Operational done=None
+  t=1783458504 nozzle=21.37 bed=21.64 state=Operational done=None
+  t=1783458509 nozzle=21.52 bed=21.56 state=Operational done=None
+  t=1783458515 nozzle=21.48 bed=21.64 state=Operational done=None
+  t=1783458520 nozzle=21.37 bed=21.64 state=Operational done=None
+  t=1783458525 nozzle=21.33 bed=21.76 state=Operational done=None
+  t=1783458530 nozzle=21.33 bed=21.6 state=Operational done=None
+  t=1783458536 nozzle=21.33 bed=21.56 state=Operational done=None
+  t=1783458541 nozzle=21.41 bed=21.68 state=Operational done=None
+  t=1783458546 nozzle=21.41 bed=21.64 state=Operational done=None
+  t=1783458551 nozzle=21.41 bed=21.64 state=Operational done=None
+  t=1783458556 nozzle=21.33 bed=21.48 state=Operational done=None
+  t=1783458561 nozzle=21.41 bed=21.6 state=Operational done=None
+  t=1783458567 nozzle=21.37 bed=21.48 state=Operational done=None
+  t=1783458572 nozzle=21.48 bed=21.64 state=Operational done=None
+  t=1783458577 nozzle=21.52 bed=21.48 state=Operational done=None
+  t=1783458582 nozzle=21.52 bed=21.64 state=Operational done=None
+  t=1783458587 nozzle=21.48 bed=21.56 state=Operational done=None
+  t=1783458592 nozzle=21.41 bed=21.64 state=Operational done=None
+  t=1783458597 nozzle=21.52 bed=21.56 state=Operational done=None
+  t=1783458602 nozzle=21.52 bed=21.56 state=Operational done=None
+  t=1783458607 nozzle=21.37 bed=21.68 state=Printing done=2.800810761009766
+  t=1783458612 nozzle=31.95 bed=22.54 state=Printing done=2.800810761009766
+  t=1783458617 nozzle=47.29 bed=24.37 state=Printing done=2.978932498003808
+  t=1783458622 nozzle=61.24 bed=26.28 state=Printing done=2.978932498003808
+  t=1783458627 nozzle=74.27 bed=28.12 state=Printing done=2.978932498003808
+  t=1783458632 nozzle=86.48 bed=30.0 state=Printing done=2.978932498003808
+  t=1783458638 nozzle=98.49 bed=32.08 state=Printing done=2.978932498003808
+  t=1783458643 nozzle=109.49 bed=34.32 state=Printing done=2.978932498003808
+  t=1783458648 nozzle=120.18 bed=36.31 state=Printing done=2.978932498003808
+  t=1783458653 nozzle=130.37 bed=38.17 state=Printing done=2.978932498003808
+  t=1783458658 nozzle=140.14 bed=39.96 state=Printing done=2.978932498003808
+  t=1783458663 nozzle=149.66 bed=41.78 state=Printing done=2.978932498003808
+  t=1783458668 nozzle=159.63 bed=43.9 state=Printing done=2.978932498003808
+  t=1783458673 nozzle=167.14 bed=45.35 state=Printing done=2.978932498003808
+  t=1783458678 nozzle=176.48 bed=47.22 state=Printing done=2.978932498003808
+  t=1783458683 nozzle=183.1 bed=48.54 state=Printing done=2.978932498003808
+  t=1783458688 nozzle=192.56 bed=50.23 state=Printing done=2.978932498003808
+  t=1783458693 nozzle=196.45 bed=50.61 state=Printing done=2.978932498003808
+  t=1783458699 nozzle=197.73 bed=50.48 state=Printing done=3.1816227504453045
+  t=1783458704 nozzle=199.2 bed=50.23 state=Printing done=3.1816227504453045
+  t=1783458709 nozzle=200.38 bed=49.74 state=Printing done=3.1816227504453045
+  t=1783458714 nozzle=200.49 bed=49.74 state=Printing done=7.573244886677723
+  t=1783458719 nozzle=200.21 bed=49.95 state=Printing done=7.573244886677723
+  t=1783458724 nozzle=200.14 bed=49.98 state=Printing done=7.886493458632763
+  t=1783458729 nozzle=200.0 bed=50.11 state=Printing done=8.936797494011424
+  t=1783458734 nozzle=200.42 bed=50.0 state=Printing done=10.159081137522264
+  t=1783458739 nozzle=200.0 bed=49.98 state=Printing done=12.456237331859223
+  t=1783458744 nozzle=200.1 bed=49.9 state=Printing done=15.20791106197408
+  t=1783458749 nozzle=200.1 bed=50.0 state=Printing done=18.57993980713715
+  t=1783458754 nozzle=200.07 bed=50.0 state=Printing done=21.479024629936735
+  t=1783458759 nozzle=200.0 bed=50.04 state=Printing done=24.16927707143296
+  t=1783458765 nozzle=199.97 bed=50.07 state=Printing done=27.31404704870708
+  t=1783458770 nozzle=199.83 bed=50.07 state=Printing done=30.299121675572753
+  t=1783458775 nozzle=200.0 bed=50.03 state=Printing done=33.149069467477425
+  t=1783458780 nozzle=199.89 bed=49.97 state=Printing done=35.906885326454145
+  t=1783458785 nozzle=200.0 bed=49.88 state=Printing done=39.28505620047908
+  t=1783458790 nozzle=199.94 bed=49.93 state=Printing done=42.23327805417358
+  t=1783458795 nozzle=200.0 bed=49.98 state=Printing done=44.984951784288434
+  t=1783458800 nozzle=200.0 bed=50.06 state=Printing done=48.203427307904924
+  t=1783458805 nozzle=200.0 bed=50.09 state=Printing done=51.25606535225109
+  t=1783458810 nozzle=199.94 bed=50.01 state=Printing done=54.16129230391253
+  t=1783458815 nozzle=200.0 bed=50.03 state=Printing done=56.98052945150789
+  t=1783458820 nozzle=200.0 bed=50.0 state=Printing done=60.19900497512438
+  t=1783458825 nozzle=200.03 bed=49.97 state=Printing done=63.40519624101714
+  t=1783458830 nozzle=200.03 bed=49.98 state=Printing done=66.156869971132
+  t=1783458836 nozzle=200.0 bed=50.0 state=Printing done=69.37534549474847
+  t=1783458841 nozzle=200.0 bed=50.0 state=Printing done=72.42798353909465
+  t=1783458846 nozzle=200.03 bed=50.0 state=Printing done=75.3332104907561
+  t=1783458851 nozzle=200.0 bed=50.03 state=Printing done=78.15244763835145
+  t=1783458856 nozzle=199.94 bed=50.04 state=Printing done=81.37092316196794
+  t=1783458861 nozzle=200.0 bed=50.0 state=Printing done=84.5771144278607
+  t=1783458866 nozzle=199.97 bed=50.0 state=Printing done=87.32878815797555
+  t=1783458871 nozzle=199.97 bed=50.0 state=Printing done=90.54726368159204
+  t=1783458876 nozzle=200.0 bed=49.97 state=Printing done=93.59990172593821
+  t=1783458881 nozzle=200.0 bed=49.95 state=Printing done=96.51127080646152
+  t=1783458886 nozzle=200.03 bed=49.95 state=Printing done=99.55162459308397
+  t=1783458891 nozzle=196.82 bed=49.72 state=Printing done=99.55162459308397
+  t=1783458896 nozzle=188.31 bed=49.47 state=Printing done=99.55162459308397
+  t=1783458902 nozzle=182.26 bed=49.18 state=Operational done=100.0
+
+=== RESULT ===
+run name          : cube_substituted_live
+outcome           : PrintDone
+samples captured  : 100 (source=OCTOPRINT_POLL)
+assessment        : {'quality': 0.75, 'delivery': 0.3366, 'compliance': 1.0, 'thermal_samples_in_tol': 87, 'thermal_samples_total': 116, 'thermal_samples_total_unfiltered': 200, 'rating_value': 0.7505}
+offChainDataHash  : 8db2480857183707937bb16cf964e2bed54aea4a8134161631c713a7ac935f9b
+
+=== OUTPUT FILES ===
+  capture log    -> experiments/attack-matrix/capture_cube_substituted_live.jsonl
+  signed bundle  -> experiments/attack-matrix/_recorder_auto_bundle_live.json
+
+Fabric submit args (cloudnode, org MSP):
+  fn                = RecordProvenanceWithReputation
+  assetID           = PART-CUBE-SUBST-LIVE-01
+  eventType         = PRINT_JOB
+  offChainDataHash  = 8db2480857183707937bb16cf964e2bed54aea4a8134161631c713a7ac935f9b
+  ratedActorID      = operator-secnet
+  ratingValue       = 0.7505
+  dimension         = quality
+  evidenceHash      = 2223ebd0e72695d083fb0faa3e7fa9538e5ad4031b138e79ba5bc81e174fb247

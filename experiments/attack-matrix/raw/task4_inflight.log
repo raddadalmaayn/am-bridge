@@ -1,0 +1,17 @@
+----------------------------------------------------------------------
+Task 4: in-flight telemetry modification (post-signing)
+----------------------------------------------------------------------
+mutated sample[0].nozzle_c : 21.17 -> 21.27
+on-chain committed hash        : 43dd3e476543d8bc936c280de42ae553e582c2135813b1fb0a1b39394404495b
+recomputed hash (tampered)     : 0e61c69e97bbd55229bdf5f800673027cd812608e051aba2dd1b411893b46819
+
+verify_bundle verdict : REJECT
+   - LEDGER-HASH MISMATCH: stored evidence != on-chain commitment (0e61c69e97bb.. vs 43dd3e476543..)
+   - DEVICE SIGNATURE INVALID: payload not signed by claimed device key
+
+[Detection 1] ledger-hash mismatch : FIRED
+[Detection 2] signature invalid    : FIRED
+----------------------------------------------------------------------
+RESULT: a single-byte post-signing edit is caught twice over — the
+evidence no longer hashes to the on-chain commitment AND the device
+signature no longer verifies over the altered payload.

@@ -1,0 +1,34 @@
+# Task 0 — Network up + ledger verification (2026-07-07)
+
+## State found
+Network was ALREADY RUNNING (containers up ~2 weeks), so no ./network.sh restart
+was performed (a restart would have wiped the ledger holding the published
+capture/bundle provenance records). Verified liveness instead.
+
+Containers (docker ps): peer0.org1.example.com, peer0.org2.example.com,
+orderer.example.com, ca_org1, ca_org2, ca_orderer,
+peer0org1_unified_ccaas, peer0org2_unified_ccaas (CCAAS chaincode, port 9999)
+(+ prov/rep two-chaincode CCAAS containers from the atomicity experiment)
+
+## Commands used (env from fabric_env.sh in this directory)
+$ docker ps -a --format '{{.Names}}\t{{.Status}}\t{{.Image}}'
+$ source fabric_env.sh
+$ peer channel getinfo -c mychannel
+Blockchain info: {"height":11953,"currentBlockHash":"EMOg3iK3AaBmF/RuG5JUtXM/qdFt75smapD9VtlakuY=","previousBlockHash":"nwSWFqVIhdtD6CLj3TFXvWQ7GaRJta1z1eAjqHIKCHs="}
+
+$ peer chaincode query -C mychannel -n unified -c '{"function":"ProvenanceContract:ReadAsset","Args":["PART-CUBE-001"]}'
+{"assetID":"PART-CUBE-001","owner":"Org1MSP","currentLifecycleStage":"PRINT_COMPLETE","historyTxIDs":["f6dde4ba5d7a2e8d4523c6912bc8cd15383c8efebf37275fee3326c811ed348c","e6dc665f3c7fabfa36aa59812be8366ad5e907c3ab11b5a3aaab90092a5e06fd"]}
+
+## Pre-experiment ledger state checks
+$ peer chaincode query ... GetReputationGate PRINT_JOB
+Error: endorsement failure during query. response: status:500 message:"no reputation gate set for event type: PRINT_JOB"
+(no gate configured -> gate check not active during latency runs)
+
+$ peer chaincode query ... GetReputation operator-secnet quality
+{"actorId":"operator-secnet","alpha":3.9294384518698022,"beta":2,"confidenceHigh":0.9020060082918635,"confidenceLow":0.2954590269112865,"dimension":"quality","lastTs":1781646750,"score":0.662699930822401,"totalEvents":5}
+
+## Recovery commands (NOT needed today, documented for reproducibility)
+export DOCKER_SOCK=/var/run/docker.sock
+cd ~/AM/fabric-samples/test-network && ./network.sh down   # only if channel stale
+./network.sh up createChannel -c mychannel -ca
+docker start peer0org1_unified_ccaas peer0org2_unified_ccaas

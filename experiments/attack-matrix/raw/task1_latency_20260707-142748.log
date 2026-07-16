@@ -1,0 +1,31 @@
+bundle=bundle_cube_done.json offChainHash=43dd3e476543d8bc936c280de42ae553e582c2135813b1fb0a1b39394404495b rating=0.7339
+== Step 0: AddStake 50000 (idempotent) ==
+stake ok
+== Step 1: certify 20 throwaway assets (setup, NOT timed) ==
+== Step 2: 20 timed sequential RecordProvenanceWithReputation ==
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+== Stats ==
+n=20 success, 0 failed
+mean   = 227.8 ms
+median = 223.0 ms
+p95    = 260.7 ms
+min/max= 192 / 273 ms

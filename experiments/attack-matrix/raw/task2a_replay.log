@@ -1,0 +1,10 @@
+# Task 2(a) — cross-asset replay of bundle_cube_done.json offChainDataHash=43dd3e476543d8bc936c280de42ae553e582c2135813b1fb0a1b39394404495b
+
+## Attempt 1: RecordPrintJob against PART-CUBE-001 (stage=PRINT_COMPLETE, already consumed this evidence)
+$ peer chaincode invoke ... ProvenanceContract:RecordPrintJob [PART-CUBE-001, JOB-REPLAY-01, ENDER3-SECNET, MAT-BATCH-f4u2, 43dd3e476543d8bc936c280de42ae553e582c2135813b1fb0a1b39394404495b]
+Error: endorsement failure during invoke. response: status:500 message:"invalid lifecycle transition: RecordPrintJob requires stage MATERIAL_CERTIFIED, current stage is PRINT_COMPLETE"
+rc=1
+
+## Attempt 2: RecordPrintJob against never-certified asset REPLAY-NOCERT-01
+Error: endorsement failure during invoke. response: status:500 message:"asset REPLAY-NOCERT-01 does not exist"
+rc=1

@@ -1,0 +1,169 @@
+{
+  "payload": {
+    "schema": "am-provenance/telemetry-bundle/v1",
+    "assetId": "PART-CUBE-SIM",
+    "eventType": "PRINT_JOB",
+    "machine": "Creality Ender-3",
+    "design": {
+      "gcode_filename": "calibration_cube_20mm.gcode",
+      "gcode_sha256": "dec2a69dc80df985e2cacb50cc3d0c248c90fd6610b000905a80e66eca62f801",
+      "gcode_bytes": 20076,
+      "slicer": "Cura_SteamEngine 5.12.0",
+      "flavor": "Marlin",
+      "expected_nozzle_c": 200.0,
+      "expected_bed_c": 50.0,
+      "expected_layers": 50,
+      "expected_time_s": 306,
+      "filament_m": 0.2608
+    },
+    "observed": {
+      "source": "SIMULATED_NO_PRINTER",
+      "tolerance_c": 8.0,
+      "actual_time_s": 600,
+      "executed_gcode_sha256": "dec2a69dc80df985e2cacb50cc3d0c248c90fd6610b000905a80e66eca62f801",
+      "samples": [
+        {
+          "t": 1000,
+          "nozzle_c": 0.0,
+          "bed_c": 0.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1030,
+          "nozzle_c": 49.5,
+          "bed_c": 16.7,
+          "state": "Printing"
+        },
+        {
+          "t": 1060,
+          "nozzle_c": 99.8,
+          "bed_c": 33.3,
+          "state": "Printing"
+        },
+        {
+          "t": 1090,
+          "nozzle_c": 150.4,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1120,
+          "nozzle_c": 200.3,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1150,
+          "nozzle_c": 199.6,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1180,
+          "nozzle_c": 199.6,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1210,
+          "nozzle_c": 200.2,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1240,
+          "nozzle_c": 200.5,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1270,
+          "nozzle_c": 199.9,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1300,
+          "nozzle_c": 199.5,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1330,
+          "nozzle_c": 199.9,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1360,
+          "nozzle_c": 200.5,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1390,
+          "nozzle_c": 200.2,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1420,
+          "nozzle_c": 199.6,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1450,
+          "nozzle_c": 199.7,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1480,
+          "nozzle_c": 200.3,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1510,
+          "nozzle_c": 200.4,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1540,
+          "nozzle_c": 199.8,
+          "bed_c": 50.0,
+          "state": "Printing"
+        },
+        {
+          "t": 1570,
+          "nozzle_c": 199.5,
+          "bed_c": 50.0,
+          "state": "Printing"
+        }
+      ]
+    },
+    "assessment": {
+      "quality": 0.825,
+      "delivery": 0.0392,
+      "compliance": 1.0,
+      "thermal_samples_in_tol": 33,
+      "thermal_samples_total": 40,
+      "thermal_samples_total_unfiltered": 40,
+      "rating_value": 0.7509
+    },
+    "outcome": "PrintCancelled",
+    "window": {
+      "started": "(capture start)",
+      "ended": "(capture end)"
+    }
+  },
+  "attestation": {
+    "alg": "Ed25519",
+    "signed_field": "payload",
+    "device_id": "DEV:1cf20afaacb6ed6b",
+    "pubkey": "58363123af2b947b3434f11297e6e6a625b23db6dede431a317a581e52ef0b8c",
+    "signature": "1bbda1022bdeb5bfbe4c29ecf347f8f86f3b8f8b9278d73449a118382fd180fd192ff32349d8ffc03c53883dc612f898e8a9e6f077e368eccc6accc65748aa02"
+  }
+}

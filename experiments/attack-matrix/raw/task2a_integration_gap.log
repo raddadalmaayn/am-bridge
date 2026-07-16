@@ -1,0 +1,6 @@
+# Task 2(a) addendum — same replay via IntegrationContract:RecordProvenanceWithReputation
+# against never-certified throwaway asset REPLAY-GAP-01 (does the integration path enforce the state machine?)
+rc=0
+
+## Resulting asset state:
+{"assetID":"REPLAY-GAP-01","owner":"Org1MSP","currentLifecycleStage":"PRINT_COMPLETE","historyTxIDs":["fde3741d4a80ed30dc6b355119d41af4790b8aec5c46c6a2c8b996fb8da08c61"]}

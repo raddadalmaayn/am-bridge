@@ -1,0 +1,12 @@
+----------------------------------------------------------------------
+Task 3: wrong-key vs true-key signature verification (bundle unmodified)
+----------------------------------------------------------------------
+true device pubkey  : 58363123af2b947b3434f11297e6e6a625b23db6dede431a317a581e52ef0b8c
+wrong device pubkey : c644eefd1d1a1f8e8b72f3d72807e85213841e07410cf3ff8cbf9b3ddb4c6f0e  (fresh keypair in /tmp/wrongkey_hjujlcmw)
+device_id (bundle)  : DEV:1cf20afaacb6ed6b
+
+[1] verify against WRONG key : FAIL  -> expected FAIL  (OK)
+[2] verify against TRUE  key : PASS  -> expected PASS  (OK)
+----------------------------------------------------------------------
+RESULT: signature is valid ONLY under the true device key; an attacker
+without the Pi-resident private key cannot forge a passing attestation.
