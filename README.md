@@ -41,6 +41,7 @@ skipped.)
 |---|---|---|
 | Table II assessments, signatures, commitments | `verify.py` | nothing |
 | Warm-up exclusion, tolerance sweep, 5-30 s decimation (Sec. VI-B) | `analysis/policy_sensitivity.py` | nothing |
+| Fig. 3 (signed vs. warm-up-excluded quality per run) | `analysis/fig_assessment.py` | matplotlib |
 | Attack matrix (Table III) | `experiments/attack-matrix/` | Fabric |
 | Bridge latency (Sec. VI-E) | `benchmark_bridge.py`, `experiments/attack-matrix/task1_latency.sh` | Fabric for commit latency |
 | Fleet concurrency (Sec. VI-F) | `experiments/fleet/` (see below) | Fabric |
