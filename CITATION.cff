@@ -6,6 +6,11 @@ authors:
     given-names: Raddad
 license: MIT
 repository-code: "https://github.com/raddadalmaayn/am-bridge"
+doi: "10.5281/zenodo.24126907"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24126908"
+    description: "Archived release v1.0-ccnc2027 used in the paper"
 preferred-citation:
   type: conference-paper
   title: "Closing the Physical-to-Chain Gap: Tamper-Evident Provenance Attestation for Additive Manufacturing Supply Chains"

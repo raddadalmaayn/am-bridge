@@ -17,6 +17,11 @@ implements the T1 tier end-to-end on an unmodified consumer Ender-3 printer.
 
 Author: Raddad Almaayn
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24126908.svg)](https://doi.org/10.5281/zenodo.24126908)
+Archived release used in the CCNC 2027 paper: `v1.0-ccnc2027`,
+doi:[10.5281/zenodo.24126908](https://doi.org/10.5281/zenodo.24126908)
+(all versions: doi:[10.5281/zenodo.24126907](https://doi.org/10.5281/zenodo.24126907)).
+
 ## Verify the published evidence (no printer, no ledger needed)
 
 ```bash
