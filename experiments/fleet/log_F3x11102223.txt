@@ -1,0 +1,15 @@
+AddStake: ok
+independent N= 1 jobs=32 ok=32 goodput=14.14 job/s p50=69.4ms p95=83ms retry=0.0% (mvcc 0, mismatch 0) att/job=1
+independent N= 2 jobs=32 ok=32 goodput=28.44 job/s p50=70.7ms p95=85.2ms retry=0.0% (mvcc 0, mismatch 0) att/job=1
+independent N= 4 jobs=32 ok=32 goodput=53.02 job/s p50=75.5ms p95=89.5ms retry=0.0% (mvcc 0, mismatch 0) att/job=1
+independent N= 8 jobs=32 ok=32 goodput=94.83 job/s p50=84.7ms p95=103.1ms retry=0.0% (mvcc 0, mismatch 0) att/job=1
+independent N=16 jobs=64 ok=64 goodput=160.19 job/s p50=95ms p95=111.2ms retry=0.0% (mvcc 0, mismatch 0) att/job=1
+independent N=32 jobs=128 ok=128 goodput=262.42 job/s p50=115.7ms p95=144.2ms retry=0.0% (mvcc 0, mismatch 0) att/job=1
+independent N=64 jobs=256 ok=256 goodput=309.38 job/s p50=196.2ms p95=259ms retry=0.0% (mvcc 0, mismatch 0) att/job=1
+shared      N= 1 jobs=32 ok=32 goodput=14.76 job/s p50=66.7ms p95=76.9ms retry=0.0% (mvcc 0, mismatch 0) att/job=1 farmEvents=32
+shared      N= 2 jobs=32 ok=32 goodput=13.09 job/s p50=70.2ms p95=93.7ms retry=17.9% (mvcc 6, mismatch 1) att/job=1.22 farmEvents=32
+shared      N= 4 jobs=32 ok=32 goodput=14.32 job/s p50=88.3ms p95=877.2ms retry=55.6% (mvcc 35, mismatch 5) att/job=2.25 farmEvents=32
+shared      N= 8 jobs=32 ok=32 goodput=12.52 job/s p50=189.6ms p95=1709.3ms retry=68.0% (mvcc 58, mismatch 10) att/job=3.13 farmEvents=32
+shared      N=16 jobs=64 ok=64 goodput=13.74 job/s p50=427.5ms p95=2254.6ms retry=78.1% (mvcc 208, mismatch 20) att/job=4.56 farmEvents=64
+shared      N=32 jobs=128 ok=128 goodput=15.18 job/s p50=701.1ms p95=4933.3ms retry=85.5% (mvcc 637, mismatch 115) att/job=6.88 farmEvents=128
+shared      N=64 jobs=256 ok=256 goodput=15.97 job/s p50=1848.3ms p95=8945.4ms retry=91.5% (mvcc 2374, mismatch 366) att/job=11.7 farmEvents=256

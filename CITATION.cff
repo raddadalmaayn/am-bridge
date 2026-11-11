@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the paper below."
+title: "am-bridge: physical-to-chain attestation bridge for additive manufacturing provenance"
+authors:
+  - family-names: Almaayn
+    given-names: Raddad
+license: MIT
+repository-code: "https://github.com/raddadalmaayn/am-bridge"
+preferred-citation:
+  type: conference-paper
+  title: "Closing the Physical-to-Chain Gap: Tamper-Evident Provenance Attestation for Additive Manufacturing Supply Chains"
+  authors:
+    - family-names: Almaayn
+      given-names: Raddad
+    - family-names: Karukutla
+      given-names: Ashok
+    - family-names: Ali
+      given-names: Abid Mohammad
+    - family-names: Tsegaye
+      given-names: Henok B.
+    - family-names: Tshakwanda
+      given-names: Petro M.
+    - family-names: Kumar
+      given-names: Harsh
+    - family-names: Devetsikiotis
+      given-names: Michael
+  collection-title: "2027 IEEE 24th Consumer Communications & Networking Conference (CCNC)"
+  publisher:
+    name: IEEE
+  year: 2027

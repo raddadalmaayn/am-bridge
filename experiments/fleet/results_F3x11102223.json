@@ -1,0 +1,328 @@
+{
+  "started": "2026-11-11T05:25:18.095Z",
+  "batchTimeout": "50ms",
+  "levels": [
+    {
+      "scenario": "independent",
+      "n": 1,
+      "jobs": 32,
+      "committed": 32,
+      "cert_failures": 0,
+      "wall_s": 2.263,
+      "goodput_jobs_per_s": 14.14,
+      "latency_ms": {
+        "mean": 70.7,
+        "p50": 69.4,
+        "p95": 83
+      },
+      "attempts_total": 32,
+      "attempts_per_job": 1,
+      "mvcc_conflicts": 0,
+      "endorsement_mismatches": 0,
+      "retry_fraction": 0,
+      "failures": []
+    },
+    {
+      "scenario": "independent",
+      "n": 2,
+      "jobs": 32,
+      "committed": 32,
+      "cert_failures": 0,
+      "wall_s": 1.125,
+      "goodput_jobs_per_s": 28.44,
+      "latency_ms": {
+        "mean": 70.2,
+        "p50": 70.7,
+        "p95": 85.2
+      },
+      "attempts_total": 32,
+      "attempts_per_job": 1,
+      "mvcc_conflicts": 0,
+      "endorsement_mismatches": 0,
+      "retry_fraction": 0,
+      "failures": []
+    },
+    {
+      "scenario": "independent",
+      "n": 4,
+      "jobs": 32,
+      "committed": 32,
+      "cert_failures": 0,
+      "wall_s": 0.604,
+      "goodput_jobs_per_s": 53.02,
+      "latency_ms": {
+        "mean": 75,
+        "p50": 75.5,
+        "p95": 89.5
+      },
+      "attempts_total": 32,
+      "attempts_per_job": 1,
+      "mvcc_conflicts": 0,
+      "endorsement_mismatches": 0,
+      "retry_fraction": 0,
+      "failures": []
+    },
+    {
+      "scenario": "independent",
+      "n": 8,
+      "jobs": 32,
+      "committed": 32,
+      "cert_failures": 0,
+      "wall_s": 0.337,
+      "goodput_jobs_per_s": 94.83,
+      "latency_ms": {
+        "mean": 81.5,
+        "p50": 84.7,
+        "p95": 103.1
+      },
+      "attempts_total": 32,
+      "attempts_per_job": 1,
+      "mvcc_conflicts": 0,
+      "endorsement_mismatches": 0,
+      "retry_fraction": 0,
+      "failures": []
+    },
+    {
+      "scenario": "independent",
+      "n": 16,
+      "jobs": 64,
+      "committed": 64,
+      "cert_failures": 0,
+      "wall_s": 0.4,
+      "goodput_jobs_per_s": 160.19,
+      "latency_ms": {
+        "mean": 94,
+        "p50": 95,
+        "p95": 111.2
+      },
+      "attempts_total": 64,
+      "attempts_per_job": 1,
+      "mvcc_conflicts": 0,
+      "endorsement_mismatches": 0,
+      "retry_fraction": 0,
+      "failures": []
+    },
+    {
+      "scenario": "independent",
+      "n": 32,
+      "jobs": 128,
+      "committed": 128,
+      "cert_failures": 0,
+      "wall_s": 0.488,
+      "goodput_jobs_per_s": 262.42,
+      "latency_ms": {
+        "mean": 112.9,
+        "p50": 115.7,
+        "p95": 144.2
+      },
+      "attempts_total": 128,
+      "attempts_per_job": 1,
+      "mvcc_conflicts": 0,
+      "endorsement_mismatches": 0,
+      "retry_fraction": 0,
+      "failures": []
+    },
+    {
+      "scenario": "independent",
+      "n": 64,
+      "jobs": 256,
+      "committed": 256,
+      "cert_failures": 0,
+      "wall_s": 0.827,
+      "goodput_jobs_per_s": 309.38,
+      "latency_ms": {
+        "mean": 195.5,
+        "p50": 196.2,
+        "p95": 259
+      },
+      "attempts_total": 256,
+      "attempts_per_job": 1,
+      "mvcc_conflicts": 0,
+      "endorsement_mismatches": 0,
+      "retry_fraction": 0,
+      "failures": []
+    },
+    {
+      "scenario": "shared",
+      "n": 1,
+      "jobs": 32,
+      "committed": 32,
+      "cert_failures": 0,
+      "wall_s": 2.168,
+      "goodput_jobs_per_s": 14.76,
+      "latency_ms": {
+        "mean": 67.8,
+        "p50": 66.7,
+        "p95": 76.9
+      },
+      "attempts_total": 32,
+      "attempts_per_job": 1,
+      "mvcc_conflicts": 0,
+      "endorsement_mismatches": 0,
+      "retry_fraction": 0,
+      "failures": [],
+      "shared_operator": {
+        "actor": "FLEET-FARM-F3x11102223-N1",
+        "total_events": 32,
+        "alpha": 22.37232049525869,
+        "beta": 2
+      }
+    },
+    {
+      "scenario": "shared",
+      "n": 2,
+      "jobs": 32,
+      "committed": 32,
+      "cert_failures": 0,
+      "wall_s": 2.444,
+      "goodput_jobs_per_s": 13.09,
+      "latency_ms": {
+        "mean": 114,
+        "p50": 70.2,
+        "p95": 93.7
+      },
+      "attempts_total": 39,
+      "attempts_per_job": 1.22,
+      "mvcc_conflicts": 6,
+      "endorsement_mismatches": 1,
+      "retry_fraction": 0.1795,
+      "failures": [],
+      "shared_operator": {
+        "actor": "FLEET-FARM-F3x11102223-N2",
+        "total_events": 32,
+        "alpha": 22.37232049525869,
+        "beta": 2
+      }
+    },
+    {
+      "scenario": "shared",
+      "n": 4,
+      "jobs": 32,
+      "committed": 32,
+      "cert_failures": 0,
+      "wall_s": 2.235,
+      "goodput_jobs_per_s": 14.32,
+      "latency_ms": {
+        "mean": 229.9,
+        "p50": 88.3,
+        "p95": 877.2
+      },
+      "attempts_total": 72,
+      "attempts_per_job": 2.25,
+      "mvcc_conflicts": 35,
+      "endorsement_mismatches": 5,
+      "retry_fraction": 0.5556,
+      "failures": [],
+      "shared_operator": {
+        "actor": "FLEET-FARM-F3x11102223-N4",
+        "total_events": 32,
+        "alpha": 22.37232049525869,
+        "beta": 2
+      }
+    },
+    {
+      "scenario": "shared",
+      "n": 8,
+      "jobs": 32,
+      "committed": 32,
+      "cert_failures": 0,
+      "wall_s": 2.557,
+      "goodput_jobs_per_s": 12.52,
+      "latency_ms": {
+        "mean": 458.9,
+        "p50": 189.6,
+        "p95": 1709.3
+      },
+      "attempts_total": 100,
+      "attempts_per_job": 3.13,
+      "mvcc_conflicts": 58,
+      "endorsement_mismatches": 10,
+      "retry_fraction": 0.68,
+      "failures": [],
+      "shared_operator": {
+        "actor": "FLEET-FARM-F3x11102223-N8",
+        "total_events": 32,
+        "alpha": 22.37232049525869,
+        "beta": 2
+      }
+    },
+    {
+      "scenario": "shared",
+      "n": 16,
+      "jobs": 64,
+      "committed": 64,
+      "cert_failures": 0,
+      "wall_s": 4.657,
+      "goodput_jobs_per_s": 13.74,
+      "latency_ms": {
+        "mean": 764.2,
+        "p50": 427.5,
+        "p95": 2254.6
+      },
+      "attempts_total": 292,
+      "attempts_per_job": 4.56,
+      "mvcc_conflicts": 208,
+      "endorsement_mismatches": 20,
+      "retry_fraction": 0.7808,
+      "failures": [],
+      "shared_operator": {
+        "actor": "FLEET-FARM-F3x11102223-N16",
+        "total_events": 64,
+        "alpha": 42.74464099051738,
+        "beta": 2
+      }
+    },
+    {
+      "scenario": "shared",
+      "n": 32,
+      "jobs": 128,
+      "committed": 128,
+      "cert_failures": 0,
+      "wall_s": 8.433,
+      "goodput_jobs_per_s": 15.18,
+      "latency_ms": {
+        "mean": 1381.2,
+        "p50": 701.1,
+        "p95": 4933.3
+      },
+      "attempts_total": 880,
+      "attempts_per_job": 6.88,
+      "mvcc_conflicts": 637,
+      "endorsement_mismatches": 115,
+      "retry_fraction": 0.8545,
+      "failures": [],
+      "shared_operator": {
+        "actor": "FLEET-FARM-F3x11102223-N32",
+        "total_events": 128,
+        "alpha": 83.48928198103486,
+        "beta": 2
+      }
+    },
+    {
+      "scenario": "shared",
+      "n": 64,
+      "jobs": 256,
+      "committed": 256,
+      "cert_failures": 0,
+      "wall_s": 16.026,
+      "goodput_jobs_per_s": 15.97,
+      "latency_ms": {
+        "mean": 2729.9,
+        "p50": 1848.3,
+        "p95": 8945.4
+      },
+      "attempts_total": 2996,
+      "attempts_per_job": 11.7,
+      "mvcc_conflicts": 2374,
+      "endorsement_mismatches": 366,
+      "retry_fraction": 0.9146,
+      "failures": [],
+      "shared_operator": {
+        "actor": "FLEET-FARM-F3x11102223-N64",
+        "total_events": 256,
+        "alpha": 164.97856396206984,
+        "beta": 2
+      }
+    }
+  ]
+}

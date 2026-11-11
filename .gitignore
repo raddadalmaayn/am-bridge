@@ -37,3 +37,6 @@ paper/main.pdf
 # --- Local-only material excluded from the public tree ---
 Ender3_Printer/
 f4u2.gcode
+
+# --- Superseded fleet runs (retry policy fixed / reused tags); kept locally only ---
+experiments/fleet/superseded/

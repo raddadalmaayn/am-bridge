@@ -17,6 +17,50 @@ implements the T1 tier end-to-end on an unmodified consumer Ender-3 printer.
 
 Author: Raddad Almaayn
 
+## Verify the published evidence (no printer, no ledger needed)
+
+```bash
+pip install cryptography
+python3 verify.py --tamper
+```
+
+For each signed bundle, `verify.py` checks the Ed25519 device signature, the
+device identity, the on-chain commitment against the `offChainDataHash`
+recorded at commit time (`commitments.json`), the design-file hash, and that
+the signed assessment is reproduced from the signed telemetry samples. It
+also reports the warm-up-excluded quality used in the paper, and `--tamper`
+shows that editing one stored sample breaks both the commitment and the
+signature. The original testbed ledger is not distributed; the recorded
+commitment values come from the commit logs in `experiments/` and the paper.
+(`f4u2.gcode` is not part of the public tree, so its design-file check is
+skipped.)
+
+## Reproducing the paper's results
+
+| Paper result | Script | Needs |
+|---|---|---|
+| Table II assessments, signatures, commitments | `verify.py` | nothing |
+| Warm-up exclusion, tolerance sweep, 5-30 s decimation (Sec. VI-B) | `analysis/policy_sensitivity.py` | nothing |
+| Attack matrix (Table III) | `experiments/attack-matrix/` | Fabric |
+| Bridge latency (Sec. VI-E) | `benchmark_bridge.py`, `experiments/attack-matrix/task1_latency.sh` | Fabric for commit latency |
+| Fleet concurrency (Sec. VI-F) | `experiments/fleet/` (see below) | Fabric |
+| Live capture | `capture_poll.py`, `run_experiment.sh` | printer + OctoPrint |
+
+**Fleet experiment.** Emulates 1-64 printers, each with its own Ed25519 key,
+re-attesting the four real PLA traces under fresh asset IDs and committing
+them concurrently through `IntegrationContract:RecordProvenanceWithReputation`,
+either with one operator per printer or with one shared print-farm operator:
+
+```bash
+cd experiments/fleet
+python3 make_fleet_bundles.py --tag MYRUN --out jobs_MYRUN.jsonl
+node fleet_submit.js jobs_MYRUN.jsonl results_MYRUN.json   # needs @hyperledger/fabric-gateway
+python3 summarize.py
+```
+
+Use a fresh `--tag` for every run: asset IDs must be new, since the chaincode
+lifecycle guard rejects a second `PRINT_JOB` on the same asset.
+
 ## Quickstart
 
 ```bash
@@ -39,6 +83,8 @@ python3 capture_poll.py --gcode calibration_cube_20mm.gcode \
 ## Layout
 
 ```
+verify.py                   one-command verification of all published bundles
+commitments.json            on-chain commitments recorded at commit time
 attestation.py              Ed25519 signing, canonical JSON, bundle verification
 capture_poll.py             telemetry recorder (OctoPrint polling, JSONL log)
 submit_provenance.sh        Fabric submission: certify, record, query trust report
@@ -51,6 +97,13 @@ bundle_*.json               signed telemetry bundles (evaluation data)
 capture_*.jsonl             raw telemetry logs (evaluation data)
 experiments/attack-matrix/  attack experiments: replay, tamper, wrong key,
                             in-flight edit, build substitution (+ raw logs)
+experiments/fleet/          emulated-fleet concurrency experiment (+ results)
+analysis/                   assessment-policy sensitivity analysis
 figures/                    generated evaluation figures
-paper/                      LaTeX sources for the paper
+paper/                      paper PDF and figure scripts
 ```
+
+## License and citation
+
+Code and data are released under the MIT License (`LICENSE`). If you use
+them, please cite the paper (`CITATION.cff`).

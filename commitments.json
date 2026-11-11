@@ -1,0 +1,33 @@
+{
+  "_comment": "On-chain offChainDataHash values as RECORDED at commit time on the paper's Fabric v3.1.0 testbed. verify.py checks each bundle's recomputed commitment against these. Bundles without a recorded value are still checked for signature, device identity, design binding and assessment reproducibility. A recorded value may be a prefix (hex) when only a prefix was logged.",
+  "signed_bundle.json": {
+    "assetId": "PART-f4u2-0001",
+    "recorded_offChainDataHash": "9b739c985110272a79d847b2f5507ea6",
+    "source": "paper draft, Sec. VI-A (128-bit prefix as reported)"
+  },
+  "bundle_cube_done.json": {
+    "assetId": "PART-CUBE-001",
+    "recorded_offChainDataHash": "43dd3e476543d8bc936c280de42ae553e582c2135813b1fb0a1b39394404495b",
+    "source": "experiments/attack-matrix/raw/task1_latency_20260707-142748.log, task2a_replay.log"
+  },
+  "bundle_cube_anomaly.json": {
+    "assetId": "PART-CUBE-002",
+    "recorded_offChainDataHash": null,
+    "source": "not logged in this repository"
+  },
+  "bundle_cube_repeat.json": {
+    "assetId": "PART-CUBE-003",
+    "recorded_offChainDataHash": null,
+    "source": "not logged in this repository"
+  },
+  "bundle_bracket_done.json": {
+    "assetId": "PART-BRACKET-001",
+    "recorded_offChainDataHash": null,
+    "source": "not logged in this repository"
+  },
+  "experiments/attack-matrix/bundle_cube_substituted_live.json": {
+    "assetId": "PART-CUBE-SUBST-LIVE-01",
+    "recorded_offChainDataHash": "126cff3f259712d77a09c036587b93c691436674521c93394e3c31593e2c5ed6",
+    "source": "experiments/attack-matrix/raw/task5_live_build.log"
+  }
+}
