@@ -45,7 +45,7 @@ def main(out: str):
         qss.append(h / t)
         c.append(p["assessment"]["compliance"])
 
-    fig, ax = plt.subplots(figsize=(3.45, 1.5))
+    fig, ax = plt.subplots(figsize=(3.45, 1.4))
     w = 0.26
     x = range(len(names))
     bars = [
