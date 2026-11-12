@@ -9,12 +9,16 @@ For every bundle listed in commitments.json this checks:
                          offChainDataHash recorded at commit time (when logged)
   4. design binding    : SHA-256 of the G-code file (when present) equals the
                          certified design hash; compliance = executed == certified
-  5. assessment        : the signed quality/rating are reproduced from the
+  5. asset binding     : the asset ID signed inside the payload equals the
+                         ledger asset the commitment was recorded against
+  6. assessment        : the signed quality/rating are reproduced from the
                          signed telemetry samples (reports which policy matches)
 and prints the steady-state (warm-up-excluded) quality used in the paper.
 
     python3 verify.py            # verify all bundles
     python3 verify.py --tamper   # also show that a one-sample edit is caught twice
+    python3 verify.py --replay   # also show that a same-design replay is caught
+                                 # only by the asset-binding check
 
 Requires: Python 3.9+, `cryptography`.
 """
@@ -35,7 +39,7 @@ from policy_sensitivity import quality  # noqa: E402
 OK, BAD, SKIP = "PASS", "FAIL", "n/a "
 
 
-def check(path: str, recorded: str | None) -> tuple[bool, list[str]]:
+def check(path: str, recorded: str | None, ledger_asset: str) -> tuple[bool, list[str]]:
     b = json.loads((ROOT / path).read_text())
     p, att = b["payload"], b["attestation"]
     lines, ok = [], True
@@ -57,6 +61,9 @@ def check(path: str, recorded: str | None) -> tuple[bool, list[str]]:
             f"{och[:16]}... vs recorded {recorded[:16]}... ({len(recorded) * 4}-bit)")
     else:
         row(SKIP, "ledger commitment", f"{och[:16]}... (no recorded value in repo)")
+
+    row(OK if p["assetId"] == ledger_asset else BAD, "asset binding",
+        f"signed {p['assetId']} vs ledger {ledger_asset}")
 
     d = p["design"]
     gfile = next((c for c in (ROOT / d["gcode_filename"],
@@ -97,22 +104,40 @@ def tamper_demo(path: str, recorded: str):
     return not hash_ok and not sig_ok
 
 
+def replay_demo(path: str, other_asset: str):
+    """Commit an unmodified valid bundle against another certified asset of
+    the same design: hash and signature still verify, asset binding fails."""
+    b = json.loads((ROOT / path).read_text())
+    p, att = b["payload"], b["attestation"]
+    sig_ok = verify_sig(att["pubkey"], att["signature"], canonical(p))
+    print(f"\nReplay demo: {path} (signed for {p['assetId']}) committed against {other_asset}")
+    print(f"    device signature  : {'valid' if sig_ok else 'INVALID'} (bundle untouched)")
+    print(f"    ledger commitment : matches (the replayed hash is what was committed)")
+    caught = p["assetId"] != other_asset
+    print(f"    asset binding     : {'MISMATCH (detected)' if caught else 'match'}")
+    return caught
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--tamper", action="store_true")
+    ap.add_argument("--replay", action="store_true")
     args = ap.parse_args()
     manifest = json.loads((ROOT / "commitments.json").read_text())
     all_ok = True
     for path, meta in manifest.items():
         if path.startswith("_"):
             continue
-        ok, lines = check(path, meta["recorded_offChainDataHash"])
+        ok, lines = check(path, meta["recorded_offChainDataHash"], meta["assetId"])
         all_ok &= ok
         print(f"{'VERIFIED' if ok else 'FAILED  '}  {path}  ({meta['assetId']})")
         print("\n".join(lines))
     if args.tamper:
         all_ok &= tamper_demo("bundle_cube_done.json",
                               manifest["bundle_cube_done.json"]["recorded_offChainDataHash"])
+    if args.replay:
+        all_ok &= replay_demo("bundle_cube_done.json",
+                              manifest["bundle_cube_repeat.json"]["assetId"])
     print("\nALL CHECKS PASSED" if all_ok else "\nSOME CHECKS FAILED")
     sys.exit(0 if all_ok else 1)
 

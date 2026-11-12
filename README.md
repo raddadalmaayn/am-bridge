@@ -26,16 +26,19 @@ doi:[10.5281/zenodo.24126908](https://doi.org/10.5281/zenodo.24126908)
 
 ```bash
 pip install cryptography
-python3 verify.py --tamper
+python3 verify.py --tamper --replay
 ```
 
 For each signed bundle, `verify.py` checks the Ed25519 device signature, the
 device identity, the on-chain commitment against the `offChainDataHash`
 recorded at commit time (`commitments.json`), the design-file hash, and that
 the signed assessment is reproduced from the signed telemetry samples. It
-also reports the warm-up-excluded quality used in the paper, and `--tamper`
+also checks that the asset ID signed inside each bundle matches the ledger
+asset, and reports the warm-up-excluded quality used in the paper. `--tamper`
 shows that editing one stored sample breaks both the commitment and the
-signature. The original testbed ledger is not distributed; the recorded
+signature; `--replay` shows that replaying an untouched bundle onto another
+asset of the same design passes both, and is caught only by the asset-ID
+check (the chaincode sees only the hash; see the paper, Sec. VI-D). The original testbed ledger is not distributed; the recorded
 commitment values come from the commit logs in `experiments/` and the paper.
 (`f4u2.gcode` is not part of the public tree, so its design-file check is
 skipped.)
